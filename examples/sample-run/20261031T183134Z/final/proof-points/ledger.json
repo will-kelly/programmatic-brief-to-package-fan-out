@@ -1,0 +1,20 @@
+{
+  "channel": "proof-points",
+  "thesis": "AI coding assistant pilots stall around day 90 because organisations measure seat activation instead of changed work, leaving no evidence at the renewal decision.",
+  "files": ["proof-points.md"],
+  "anecdotes": [],
+  "claims": [
+    {"id": "E1", "file": "proof-points.md", "statement": "61% of 1,240 developers in the Northfield Developer Survey 2026 said their company's assistant pilot had no agreed success measure at launch.", "figures": ["61%", "1,240", "2026"]},
+    {"id": "E2", "file": "proof-points.md", "statement": "In the Northfield Developer Survey 2026, weekly active use fell from 78% in month one to 41% by month three in pilots with no success measure, and from 80% to 66% in pilots that had one.", "figures": ["2026", "78%", "41%", "80%", "66%"]},
+    {"id": "E3", "file": "proof-points.md", "statement": "Halvorsen Research's 2026 platform team report, based on interviews at 32 companies, found the median pilot ran 94 days before a renewal decision.", "figures": ["2026", "32", "94"]},
+    {"id": "E4", "file": "proof-points.md", "statement": "In Halvorsen Research's 2026 study of 32 companies, all 9 that tracked a change in cycle time or review load renewed, against 11 of the 23 that tracked only seat activation.", "figures": ["2026", "32", "9", "11", "23"]},
+    {"id": "E5", "file": "proof-points.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use.", "figures": ["2025", "400"]}
+  ],
+  "gaps": [
+    "The brief says its organisations, sources and figures are invented examples. Every entry needs confirming against real research before use.",
+    "Geography of the Northfield Developer Survey 2026 sample.",
+    "Respondent counts for the two Northfield subgroups in E2 (with and without a success measure).",
+    "Company size and geography of the 32 companies in the Halvorsen Research sample.",
+    "Tools, teams and setting of the Ostrava University pull request study."
+  ]
+}

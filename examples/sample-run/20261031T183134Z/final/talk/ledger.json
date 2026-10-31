@@ -1,0 +1,21 @@
+{
+  "channel": "talk",
+  "thesis": "Coding assistant pilots stall around day 90 because teams count seat activation instead of changed work, so the fix is one agreed measure with a named owner from week one.",
+  "files": ["outline.md"],
+  "anecdotes": [
+    {"id": "A2", "file": "outline.md", "summary": "Central story: fintech two-team pilot, opens and closes talk."},    {"id": "A4", "file": "outline.md", "summary": "Author's 2024 pilot: no measurement owner until budget cut."}
+  ],
+  "claims": [
+    {"id": "E3", "file": "outline.md", "statement": "Abstract: Halvorsen Research's 2026 report on 32 companies.", "figures": ["2026", "32"]},
+    {"id": "E3", "file": "outline.md", "statement": "Slide 2: Halvorsen Research interviewed 32 companies for a 2026 report on platform teams. The median pilot ran 94 days before a renewal decision.", "figures": ["32", "2026", "94"]},
+    {"id": "E1", "file": "outline.md", "statement": "Slide 3: Northfield surveyed 1,240 developers in March 2026. 61% said their company's assistant pilot had \"no agreed success measure\" at launch.", "figures": ["1,240", "2026", "61%"]},
+    {"id": "E2", "file": "outline.md", "statement": "Slide 4: Among pilots with no success measure, weekly active use fell from 78% in month one to 41% by month three. Among pilots that had one, it fell from 80% to 66%.", "figures": ["78%", "41%", "80%", "66%"]},
+    {"id": "E4", "file": "outline.md", "statement": "Slide 6: 9 of Halvorsen's 32 companies tracked any change in cycle time or review load during the pilot. All 9 renewed.", "figures": ["9", "32"]},
+    {"id": "E4", "file": "outline.md", "statement": "Slide 7: The other 23 companies tracked only seat activation. 11 of them renewed.", "figures": ["23", "11"]},
+    {"id": "E4", "file": "outline.md", "statement": "Slide 11: The 9 Halvorsen companies that all renewed tracked any change in cycle time or review load.", "figures": ["9"]},
+    {"id": "E5", "file": "outline.md", "statement": "Abstract and slide 8: A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use.", "figures": ["2025", "400"]},
+    {"id": "E5", "file": "outline.md", "statement": "Slide 12: If the line didn't move, as with the 400 pull requests in the Ostrava study, recommend stopping.", "figures": ["400"]},
+    {"id": "E3", "file": "outline.md", "statement": "Slide 13: The median pilot gets 94 days.", "figures": ["94"]}
+  ],
+  "gaps": ["The fintech team's actual review turnaround figures (before and after), needed for the closing slide's visual and notes; marked TK on slide 13."]
+}

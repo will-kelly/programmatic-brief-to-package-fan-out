@@ -92,6 +92,10 @@ def numbers_in(text: str):
             yield norm_number(m), m.group(0).strip()
 
 
+def is_year(normed: str) -> bool:
+    return normed.isdigit() and 1900 <= int(normed) <= 2100
+
+
 def is_claimlike(raw: str, normed: str) -> bool:
     """Numbers worth tracing: percentages, money, multipliers, or >= 11."""
     if "%" in normed or raw[:1] in "$€£":
@@ -191,7 +195,8 @@ def cmd_check(args) -> int:
             entry = brief["entries"].get(cid, "")
             entry_nums = {n for n, _ in numbers_in(entry)}
             for fig in c.get("figures", []) or []:
-                nums = [n for n, _ in numbers_in(str(fig))]
+                # Years are usually part of a source name ("Survey 2026"), not a claim.
+                nums = [n for n, _ in numbers_in(str(fig)) if not is_year(n)]
                 for n in nums:
                     if n not in entry_nums and n not in brief["numbers"]:
                         add("error", "figure-drift", ch,
@@ -292,7 +297,7 @@ def cmd_costs(args) -> int:
     logs = Path(args.run) / "logs"
     agents = {}
     total = 0.0
-    for p in sorted(logs.glob("*.json")):
+    for p in sorted(logs.glob("[!.]*.json")):
         try:
             d = json.loads(p.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, UnicodeDecodeError):

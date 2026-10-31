@@ -1,0 +1,187 @@
+{
+  "stage": "drafts",
+  "channels": [
+    "longform",
+    "linkedin",
+    "newsletter",
+    "proof-points",
+    "talk"
+  ],
+  "errors": 4,
+  "warnings": 10,
+  "issues": [
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "longform",
+      "file": "article.md",
+      "message": "figures not found anywhere in the brief: 30"
+    },
+    {
+      "severity": "warning",
+      "type": "figure-attribution",
+      "channel": "linkedin",
+      "file": "post-03.md",
+      "message": "E2 is cited with '2026', which the brief gives elsewhere, not in E2"
+    },
+    {
+      "severity": "warning",
+      "type": "figure-attribution",
+      "channel": "linkedin",
+      "file": "post-04.md",
+      "message": "E4 is cited with '2026', which the brief gives elsewhere, not in E4"
+    },
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "linkedin",
+      "file": "post-01.md",
+      "message": "figures not found anywhere in the brief: 30"
+    },
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "linkedin",
+      "file": "post-02.md",
+      "message": "figures not found anywhere in the brief: 89"
+    },
+    {
+      "severity": "error",
+      "type": "figure-drift",
+      "channel": "newsletter",
+      "file": "edition.md",
+      "message": "E3 is cited with '45', which isn't in the brief"
+    },
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "newsletter",
+      "file": "edition.md",
+      "message": "figures not found anywhere in the brief: 45"
+    },
+    {
+      "severity": "warning",
+      "type": "figure-attribution",
+      "channel": "proof-points",
+      "file": "proof-points.md",
+      "message": "E2 is cited with '2026', which the brief gives elsewhere, not in E2"
+    },
+    {
+      "severity": "warning",
+      "type": "figure-attribution",
+      "channel": "proof-points",
+      "file": "proof-points.md",
+      "message": "E4 is cited with '2026', which the brief gives elsewhere, not in E4"
+    },
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "proof-points",
+      "file": "proof-points.md",
+      "message": "figures not found anywhere in the brief: 100%"
+    },
+    {
+      "severity": "warning",
+      "type": "untraced-figure",
+      "channel": "talk",
+      "file": "outline.md",
+      "message": "figures not found anywhere in the brief: 20"
+    },
+    {
+      "severity": "error",
+      "type": "anecdote-reuse",
+      "channel": "longform,linkedin",
+      "file": null,
+      "message": "A1 is used in 2 channels: longform, linkedin"
+    },
+    {
+      "severity": "error",
+      "type": "anecdote-reuse",
+      "channel": "longform,linkedin,newsletter,talk",
+      "file": null,
+      "message": "A2 is used in 4 channels: longform, linkedin, newsletter, talk"
+    },
+    {
+      "severity": "error",
+      "type": "anecdote-reuse",
+      "channel": "newsletter,talk",
+      "file": null,
+      "message": "A3 is used in 2 channels: newsletter, talk"
+    }
+  ],
+  "anecdote_usage": {
+    "A1": [
+      "longform",
+      "linkedin"
+    ],
+    "A2": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "talk"
+    ],
+    "A4": [
+      "newsletter",
+      "talk"
+    ],
+    "A3": [
+      "newsletter",
+      "talk"
+    ]
+  },
+  "evidence_usage": {
+    "E3": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E1": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E2": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E4": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E5": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ]
+  },
+  "unused_anecdotes": [],
+  "shared_anecdotes": [
+    "A4"
+  ],
+  "theses": {
+    "longform": "Most AI coding assistant pilots don't fail on model quality; they stall around day 90 because the organisation measured seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+    "linkedin": "AI coding assistant pilots stall around day 90 because teams measure seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+    "newsletter": "AI coding assistant pilots stall at renewal because nobody agreed in week one what changed work to measure, so the fix is a one-meeting measurement plan with an owner and a baseline.",
+    "proof-points": "AI coding assistant pilots stall around day 90 because organisations measure seat activation instead of changed work, leaving no evidence at the renewal decision.",
+    "talk": "Coding assistant pilots stall around day 90 because teams count seat activation instead of changed work, so the fix is one agreed measure with a named owner from week one."
+  },
+  "tk_count": {
+    "longform": 0,
+    "linkedin": 0,
+    "newsletter": 0,
+    "proof-points": 7,
+    "talk": 2
+  }
+}

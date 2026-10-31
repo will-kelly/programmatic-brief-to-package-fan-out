@@ -20,6 +20,22 @@ one.
 ./fanout
 ```
 
+## A real run
+
+`examples/sample-run/` is one unedited run on `examples/ai-pilot-stall.md`
+(a brief with invented figures). It took 6.6 minutes and cost $2.63. The
+writers ran in parallel, the slowest taking 2.3 minutes, and the editor took
+4.3 minutes. The precheck found three anecdotes reused across channels (one
+of them in four places) and a "day 45" figure the newsletter made up. The
+editor gave each anecdote one home and removed the invented figure. It also
+fixed a contradiction the script couldn't see: the talk said to set the
+success measure after two weeks, while every other channel said week one.
+Start with `reconciliation/report.md` and `reconciliation/editor.diff`.
+
+The writers' main habit is reaching for the same strongest story, so most of
+the editor's time goes on reallocating anecdotes. Give the brief more
+anecdotes than channels and the editor has spare ones to swap in.
+
 ## How a run works
 
 ```

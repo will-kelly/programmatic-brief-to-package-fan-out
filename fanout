@@ -303,7 +303,11 @@ changed = sum(1 for l in ed.read_text().splitlines() if l.startswith("diff ")) i
 print()
 print(f"run       {run}")
 print(f"outcome   {m['outcome']}  ({m['wall_clock_s']}s wall clock, ${m['total_cost_usd']:.2f})")
-print(f"agents    " + "  ".join(f"{k}:{v}" for k, v in sorted(m["status"].items())))
+print("agents")
+for k, v in sorted(m["status"].items(), key=lambda kv: kv[0] == "editor"):
+    a = m.get("agents", {}).get(k, {})
+    extra = f"  {a['duration_s']:>6}s  ${a['cost_usd']:.2f}" if "duration_s" in a else ""
+    print(f"  {k:<13} {v:<7}{extra}")
 if pre:  print(f"precheck  {pre['errors']} errors, {pre['warnings']} warnings")
 if post: print(f"postcheck {post['errors']} errors, {post['warnings']} warnings")
 print(f"editor    changed {changed} files  ->  reconciliation/report.md, reconciliation/editor.diff")

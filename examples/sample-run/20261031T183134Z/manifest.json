@@ -1,0 +1,84 @@
+{
+  "slug": "ai-pilot-stall",
+  "run_id": "20261031T183134Z",
+  "outcome": "ok",
+  "brief_source": "examples/ai-pilot-stall.md",
+  "previous_run": null,
+  "channels": [
+    "longform",
+    "linkedin",
+    "newsletter",
+    "proof-points",
+    "talk"
+  ],
+  "model": "default",
+  "editor_model": "default",
+  "wall_clock_s": 398,
+  "status": {
+    "editor": "ok",
+    "linkedin": "ok",
+    "longform": "ok",
+    "newsletter": "ok",
+    "proof-points": "ok",
+    "talk": "ok"
+  },
+  "inputs_sha256": {
+    "brief.md": "6356293ca852e83b2d5d5e01bd5cf857673a5d7130c2d5532a0c0c3b2f4a9a3f",
+    "voice.md": "d888829e2586fee3c9955c7af90793547ee82128b7be1d78ac4e7d06ff7cdcc5",
+    "agents/_contract.md": "5480ab2e445b65b93eae4b4ecad5bc8323e7b17a19d4df5fb85f69285e14b653",
+    "agents/editor.md": "4e862577e2e53f12efa5a1c5b4c50101a98d36b00716d5450bd3dfdbf246b2b5",
+    "agents/linkedin.md": "a6f8b0c43a35744f6af69fe0974f36db7d528e407c28bd38aaf0ca36b9235e2e",
+    "agents/longform.md": "0fd357665d7b00dbad2097dba72af9085e346d569d8aad1c339a0e6363af516c",
+    "agents/newsletter.md": "a6c18f12df3ccd2138b2d7d980ccbfc86db6492b91fbeba155e3fa34463b4734",
+    "agents/proof-points.md": "e0a7365ba610606cf5d15942b664560d4a10eb2f710a8d657c0ce249daf73da3",
+    "agents/talk.md": "93ba575ef55c6c6a9b98b17d2b96d1ecbccd04bf39a4e809ca0b19589c7975c7"
+  },
+  "agents": {
+    ".costs": {
+      "error": "unreadable log"
+    },
+    "editor": {
+      "cost_usd": 1.0236,
+      "duration_s": 255.6,
+      "turns": 46,
+      "is_error": false,
+      "result": "20 changes made across all 5 channels.\n6 items left for the author, including 9 open TKs."
+    },
+    "linkedin": {
+      "cost_usd": 0.3119,
+      "duration_s": 98.8,
+      "turns": 14,
+      "is_error": false,
+      "result": "I wrote post-01.md to post-04.md, series-plan.md and ledger.json in drafts/linkedin/. I estimated the character counts at about 1,000 to 1,250 per post but didn't measure them.\nI used anecdotes A1 and A2 only, leaving A3 and A4 for the newsletter and talk.\nThere are 0 gaps."
+    },
+    "longform": {
+      "cost_usd": 0.4024,
+      "duration_s": 137.9,
+      "turns": 9,
+      "is_error": false,
+      "result": "Files: `drafts/longform/article.md` (about 2,000 words) and `drafts/longform/ledger.json`\nAnecdotes used: A1, A2\nGaps: 0"
+    },
+    "newsletter": {
+      "cost_usd": 0.2808,
+      "duration_s": 83.9,
+      "turns": 14,
+      "is_error": false,
+      "result": "Files written: `drafts/newsletter/edition.md`, `drafts/newsletter/ledger.json`. The extra for subscribers is a 7-item measurement checklist for week one.\nAnecdotes used: A2 opens the edition, A4 is the behind-the-scenes note, A3 is in the checklist. I left A1 for the long piece.\nGaps: 0. The \"day 45 check-in\" in the checklist is advice I wrote, not a figure from the brief. The ledger notes this."
+    },
+    "proof-points": {
+      "cost_usd": 0.1861,
+      "duration_s": 48.5,
+      "turns": 6,
+      "is_error": false,
+      "result": "Files: `drafts/proof-points/proof-points.md` (5 new entries, E1\u2013E5, since there was no existing bank) and `drafts/proof-points/ledger.json`\nAnecdotes used: none (proof points don't use anecdotes as evidence)\nGaps: 5. The brief says its sources and figures are invented examples, so every entry needs checking against real research. Also missing: survey geography, E2 subgroup sizes, Halvorsen sample details and Ostrava study setting."
+    },
+    "talk": {
+      "cost_usd": 0.4276,
+      "duration_s": 132.3,
+      "turns": 6,
+      "is_error": false,
+      "result": "Files: `drafts/talk/outline.md` (13 slides, 19 minutes) and `drafts/talk/ledger.json`\nAnecdotes used: A2 (the main story), A3, A4\nGaps: 1 (the fintech team's review turnaround figures, marked TK on slide 13)"
+    }
+  },
+  "total_cost_usd": 2.6324
+}

@@ -1,0 +1,341 @@
+diff -ru drafts/linkedin/ledger.json final/linkedin/ledger.json
+--- drafts/linkedin/ledger.json	2026-10-31 18:33:08.076731099 +0000
++++ final/linkedin/ledger.json	2026-10-31 18:36:41.668743795 +0000
+@@ -2,13 +2,12 @@
+   "channel": "linkedin",
+   "thesis": "AI coding assistant pilots stall around day 90 because teams measure seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+   "files": ["post-01.md", "post-02.md", "post-03.md", "post-04.md", "series-plan.md"],
+-  "anecdotes": [
+-    {"id": "A1", "file": "post-02.md", "summary": "Hook and frame: CFO asks what changed, 92% activation slide."},
+-    {"id": "A2", "file": "post-03.md", "summary": "Two-team fintech pilot; week-one review-turnaround metric made renewal case."}
+-  ],
++  "anecdotes": [],
+   "claims": [
+     {"id": "E3", "file": "post-01.md", "statement": "Halvorsen Research interviewed 32 companies for its May 2026 report on platform teams and AI tooling. The median pilot ran 94 days before a renewal decision.", "figures": ["32", "May 2026", "94"]},
+     {"id": "E4", "file": "post-01.md", "statement": "9 of those 32 companies tracked any change in cycle time or review load during the pilot. All 9 renewed. The other 23 tracked only seat activation. 11 of them renewed.", "figures": ["9", "32", "9", "23", "11"]},
++    {"id": "E3", "file": "post-01.md", "statement": "And 32 companies is a small sample, gathered by interview, not a controlled trial.", "figures": ["32"]},
++    {"id": "E4", "file": "post-01.md", "statement": "Only the 9 could answer the question a renewal actually asks.", "figures": ["9"]},
+     {"id": "E1", "file": "post-02.md", "statement": "In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had \"no agreed success measure\" at launch.", "figures": ["2026", "1,240", "March 2026", "61%"]},
+     {"id": "E2", "file": "post-03.md", "statement": "In the Northfield Developer Survey 2026, weekly active use in pilots with no success measure fell from 78% in month one to 41% by month three. In pilots that had one, it went from 80% to 66%.", "figures": ["2026", "78%", "41%", "80%", "66%"]},
+     {"id": "E5", "file": "post-04.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use.", "figures": ["2025", "400"]},
+diff -ru drafts/linkedin/post-01.md final/linkedin/post-01.md
+--- drafts/linkedin/post-01.md	2026-10-31 18:32:14.884727937 +0000
++++ final/linkedin/post-01.md	2026-10-31 18:36:21.884742619 +0000
+@@ -7,10 +7,10 @@
+ 
+ The other 23 tracked only seat activation. 11 of them renewed.
+ 
+-I don't read this as "measure it and the tool will work." A team that bothers to track review load may also have picked a sharper use case. And 32 interviews is a small sample, not a controlled trial.
++I don't read this as "measure it and the tool will work." A team that bothers to track review load may also have picked a sharper use case. And 32 companies is a small sample, gathered by interview, not a controlled trial.
+ 
+-What I do read is simpler. When the decision arrived, the 9 had evidence to put on the table. The 23 had a login count.
++What I do read is simpler. Only the 9 could answer the question a renewal actually asks. Everyone else was arguing from logins.
+ 
+ Activation tells you people opened the tool. It tells you nothing about whether the work moved, and that's the question the person signing the renewal is asking.
+ 
+-If your pilot is past day 30 and you can't name the one work metric you'll show at renewal, you're on track for a day-90 stall. Pick the metric this week.
++If your pilot is past its first month and you can't name the one work metric you'll show at renewal, you're on track for a day-90 stall. Pick the metric this week.
+diff -ru drafts/linkedin/post-02.md final/linkedin/post-02.md
+--- drafts/linkedin/post-02.md	2026-10-31 18:32:25.292728555 +0000
++++ final/linkedin/post-02.md	2026-10-31 18:36:13.448742118 +0000
+@@ -1,9 +1,7 @@
+-The CFO asked one question at the day-90 meeting: what changed?
+-The only slide on the screen was a seat-activation chart at 92%.
++Most AI coding assistant pilots are set up to produce one number: seat activation.
++It's the wrong number for the meeting that decides whether the pilot continues.
+ 
+-A platform lead at a logistics company described that meeting. It's the clearest picture I know of how these pilots end.
+-
+-92% looks like a win. It's the number most pilots are set up to produce. But nobody in that room was asking how many people logged in.
++Activation is easy to report and it usually looks healthy. But whoever signs the renewal isn't asking how many people logged in. They're asking what's different about the work.
+ 
+ This is common. In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had "no agreed success measure" at launch.
+ 
+@@ -11,6 +9,6 @@
+ 
+ That's the stall. The model can be perfectly good and the pilot still produces no evidence either way. So the renewal turns into an argument about budget and gut feel.
+ 
+-The fix sits at day 1, not day 89. Before rollout, write down the one thing you expect to change and the person who owns that number.
++The fix sits in week one, not the week before renewal. Before rollout, write down the one thing you expect to change and the person who owns that number.
+ 
+-A 92% activation chart is a fine appendix slide. It should never be the only slide in the room when the CFO asks what changed.
++An activation chart is a fine appendix slide. It shouldn't be the only evidence you bring when someone asks what changed.
+diff -ru drafts/linkedin/post-03.md final/linkedin/post-03.md
+--- drafts/linkedin/post-03.md	2026-10-31 18:32:45.556729760 +0000
++++ final/linkedin/post-03.md	2026-10-31 18:36:29.604743078 +0000
+@@ -1,15 +1,11 @@
+-Same company. Same pilot. Two teams.
+-One team walked into renewal with a case. The other walked in with nothing.
++One agreement in week one decides what you can show at renewal.
++Most pilots skip it.
+ 
+-A director at a fintech ran a two-team coding assistant pilot. In week one, one of the teams agreed to track review turnaround.
+-
+-At renewal, that team's numbers made the case. The other team's numbers didn't exist.
+-
+-The survey data points the same way, though it can't tell you which causes which. In the Northfield Developer Survey 2026, weekly active use in pilots with no success measure fell from 78% in month one to 41% by month three. In pilots that had one, it went from 80% to 66%.
++A measure seems to matter for more than the renewal slide, though the survey can't tell you which causes which. In the Northfield Developer Survey 2026, weekly active use in pilots with no success measure fell from 78% in month one to 41% by month three. In pilots that had one, it went from 80% to 66%.
+ 
+ Both groups dropped. The pilots with a measure dropped far less.
+ 
+-To copy the week-one move:
++The week-one move:
+ 
+ Pick one metric the team already feels, like review turnaround.
+ 
+@@ -17,6 +13,6 @@
+ 
+ Name one person who owns reporting it until the renewal decision.
+ 
+-None of this needs a dashboard project. It needs an agreement in the first week, while people still remember what the work looked like before the tool.
++It doesn't need new tooling. It needs an agreement in the first week, while people still remember what the work looked like before the tool.
+ 
+-If you're splitting a pilot across teams, the team without a measure won't hand you a weaker case at renewal. It will hand you no case at all.
++If you're splitting a pilot across teams, any team without a measure won't hand you a weaker case at renewal. It will hand you no case at all.
+diff -ru drafts/linkedin/series-plan.md final/linkedin/series-plan.md
+--- drafts/linkedin/series-plan.md	2026-10-31 18:32:53.364730224 +0000
++++ final/linkedin/series-plan.md	2026-10-31 18:36:34.380743362 +0000
+@@ -3,12 +3,12 @@
+ | Post | Working title | Idea it carries | Rests on | Entry point | Posting day |
+ |---|---|---|---|---|---|
+ | 01 | 9 out of 9 | Companies that tracked changed work all renewed; activation-only companies split | E3, E4 | A number | D+1 |
+-| 02 | The 92% slide | An activation chart can't answer "what changed?", and most pilots launch with no agreed measure | A1, E1 | A scene | D+3 |
+-| 03 | Two teams, one pilot | Agree one work metric in week one; how to do it | A2, E2 | A how-to | D+6 |
++| 02 | The wrong number | An activation chart can't answer "what changed?", and most pilots launch with no agreed measure | E1 | A claim | D+3 |
++| 03 | One agreement in week one | Agree one work metric in week one; how to do it | E2 | A how-to | D+6 |
+ | 04 | Some pilots should stall | Measurement protects you from a bad renewal too; the counterpoint taken seriously | E5, E4 | A contrarian take | D+9 |
+ 
+ Notes for the editor:
+ 
+-- Anecdotes used: A1 and A2 only. A3 (paper log) and A4 (author's 2024 pilot) are left for the newsletter and the talk.
++- Anecdotes used: none. In reconciliation, A1 (logistics CFO meeting) was kept for the long piece and A2 (fintech two-team pilot) for the talk, so posts 02 and 03 were rewritten to work without a story. A3 (paper log) is with the newsletter; A4 (author's 2024 pilot) is shared between the newsletter and the talk.
+ - No hashtags and no links in any post.
+ - Post 04 refers back to "this series", so it should run last.
+diff -ru drafts/longform/article.md final/longform/article.md
+--- drafts/longform/article.md	2026-10-31 18:33:29.728732386 +0000
++++ final/longform/article.md	2026-10-31 18:35:49.272740681 +0000
+@@ -24,7 +24,7 @@
+ 
+ ## Activation is the number you get for free
+ 
+-Seat activation wins by default. The vendor dashboard reports it. Your identity provider can confirm it. It needs no baseline and no agreement between teams. At day 30 it usually looks good, which makes it feel like progress.
++Seat activation wins by default. The vendor dashboard reports it. Your identity provider can confirm it. It needs no baseline and no agreement between teams. In the first month it usually looks good, which makes it feel like progress.
+ 
+ The weakness is that activation records the start of adoption and nothing after it. A developer who turned the assistant on in week one and stopped using it in week five still counts as activated. The chart at the logistics company's day-90 meeting couldn't say whether people were still using the tool, and it wasn't built to.
+ 
+@@ -48,15 +48,13 @@
+ 
+ Notice how low the bar was. Halvorsen counted companies that tracked any change in cycle time or review load. That's a before-and-after on one or two numbers rather than a full engineering metrics programme.
+ 
+-## One team picked a number in week one
++## Pick the number in week one
+ 
+-A director at a fintech ran a pilot across two teams. In week one, one of those teams agreed to track review turnaround. The other team didn't pick a measure.
++The practical lesson is about timing. The decision about what to measure has to happen in the first week, because that's the last point where you can still take a clean baseline.
+ 
+-When renewal came, the first team's numbers made the case. The second team's numbers didn't exist.
++The number can be modest. Review turnaround is a good example. It doesn't capture everything an assistant might change, and someone could fairly argue it's the wrong measure for a tool that mostly helps with writing code. But it can be agreed early, it can be measured, and it tracks something both authors and reviewers notice. That's enough to put a slide in front of the CFO that the logistics platform lead didn't have.
+ 
+-Same company, same pilot. The difference came down to a decision made in the first week, by one team, about one number. Review turnaround is a modest choice. It doesn't capture everything an assistant might change, and someone could fairly argue it's the wrong measure for a tool that mostly helps with writing code. But it was agreed early, it could be measured, and it tracks something both authors and reviewers notice. That was enough to give the director a slide the logistics platform lead didn't have.
+-
+-The part of this story I'd underline is the second team. They used the same tool over the same period, and whatever happened to their work is now invisible. Maybe it got better. Maybe it didn't change. Nobody can say, so their experience contributed nothing to the decision. If you run a multi-team pilot, that's the realistic cost of letting each team decide later: some of your pilot simply won't count.
++If you run a multi-team pilot, think about the team that never picks a measure. It uses the same tool over the same period, and whatever happens to its work stays invisible. Maybe it got better. Maybe it didn't change. Nobody can say, so that team's experience contributes nothing to the decision. That's the realistic cost of letting each team decide later: some of your pilot simply won't count.
+ 
+ ## The strongest case for stalling
+ 
+@@ -64,7 +62,7 @@
+ 
+ A November 2025 Ostrava University study, "Assistant use and review latency," looked at 400 pull requests and found no measurable change in review time with assistant use. If review time is the measure you pick and the effect isn't there, then a stalled pilot may be the correct outcome, reached slowly. Some teams are right to stall.
+ 
+-I take this seriously, and it should change how you read Halvorsen's 9 out of 9. Measuring changed work doesn't guarantee renewal, and it shouldn't. If the fintech team's review turnaround had stayed flat, their numbers would have made the case against renewing just as clearly. A measure is a way to get an answer, not a way to get a yes.
++I take this seriously, and it should change how you read Halvorsen's 9 out of 9. Measuring changed work doesn't guarantee renewal, and it shouldn't. If a team's review turnaround stays flat, its numbers make the case against renewing just as clearly. A measure is a way to get an answer, not a way to get a yes.
+ 
+ The Ostrava result also has limits. It's one study of 400 pull requests, and review time is one measure among several. It shows that on that measure, in that sample, nothing measurable moved. It doesn't show that assistants change nothing anywhere. It's a reason to pick your measure carefully and to expect that the first one you choose might come back flat.
+ 
+@@ -74,7 +72,7 @@
+ 
+ None of this needs a data team. It needs a few decisions made before day one, and an owner for each.
+ 
+-**Agree one work measure in week one, and write down who owns it.** Review turnaround, cycle time or review load are all reasonable starting points. Halvorsen counted any change in cycle time or review load; the fintech team used review turnaround. Pick the one your code review tool already records, so the data is there without new instrumentation.
++**Agree one work measure in week one, and write down who owns it.** Review turnaround, cycle time or review load are all reasonable starting points. Halvorsen counted any change in cycle time or review load. Pick the one your code review tool already records, so the data is there without new instrumentation.
+ 
+ **Take the baseline before anyone gets a seat.** A month of pre-pilot data on your chosen measure is what turns a number into a comparison. If access has already gone out, use the teams that haven't been onboarded yet as the comparison and say so in the report.
+ 
+diff -ru drafts/longform/ledger.json final/longform/ledger.json
+--- drafts/longform/ledger.json	2026-10-31 18:33:50.096733596 +0000
++++ final/longform/ledger.json	2026-10-31 18:35:58.972741257 +0000
+@@ -3,8 +3,7 @@
+   "thesis": "Most AI coding assistant pilots don't fail on model quality; they stall around day 90 because the organisation measured seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+   "files": ["article.md"],
+   "anecdotes": [
+-    {"id": "A1", "file": "article.md", "summary": "Opening scene: CFO asks what changed, 92% activation slide; callback in close."},
+-    {"id": "A2", "file": "article.md", "summary": "Fintech two-team pilot; week-one review turnaround measure made renewal case."}
++    {"id": "A1", "file": "article.md", "summary": "Opening scene: CFO asks what changed, 92% activation slide; callback in close."}
+   ],
+   "claims": [
+     {"id": "E3", "file": "article.md", "statement": "Halvorsen Research interviewed platform teams at 32 companies for its May 2026 report, \"Platform teams and AI tooling.\" The median pilot in that group ran 94 days before a renewal decision.", "figures": ["32", "May 2026", "94"]},
+@@ -21,7 +20,7 @@
+     {"id": "E5", "file": "article.md", "statement": "A November 2025 Ostrava University study, \"Assistant use and review latency,\" looked at 400 pull requests and found no measurable change in review time with assistant use.", "figures": ["November 2025", "400"]},
+     {"id": "E4", "file": "article.md", "statement": "It should change how you read Halvorsen's 9 out of 9.", "figures": ["9", "9"]},
+     {"id": "E5", "file": "article.md", "statement": "It's one study of 400 pull requests, and review time is one measure among several.", "figures": ["400"]},
+-    {"id": "E4", "file": "article.md", "statement": "Halvorsen counted any change in cycle time or review load; the fintech team used review turnaround.", "figures": []},
++    {"id": "E4", "file": "article.md", "statement": "Halvorsen counted any change in cycle time or review load. Pick the one your code review tool already records.", "figures": []},
+     {"id": "E3", "file": "article.md", "statement": "The median pilot in Halvorsen's group ran 94 days.", "figures": ["94"]},
+     {"id": "E2", "file": "article.md", "statement": "Northfield's month-three numbers, 41% for pilots with no success measure and 66% for pilots with one, are the drop to watch for.", "figures": ["41%", "66%"]},
+     {"id": "E5", "file": "article.md", "statement": "Given Ostrava's finding on review time, agree before the pilot starts what you'll do if your measure doesn't move.", "figures": []}
+diff -ru drafts/newsletter/edition.md final/newsletter/edition.md
+--- drafts/newsletter/edition.md	2026-10-31 18:32:41.092729495 +0000
++++ final/newsletter/edition.md	2026-10-31 18:36:59.516744856 +0000
+@@ -1,28 +1,28 @@
+ ---
+ subject_lines:
+   - Decide this in week 1 or lose it at day 90
+-  - The two-team pilot that settled the renewal
++  - What one manager's paper log showed about AI pilots
+   - A week-one checklist for your AI pilot
+-preview_text: One team tracked review turnaround. The other had nothing to show the CFO.
++preview_text: One manager logged three weeks of assistant use on paper. Most of it wasn't code.
+ ---
+ 
+ The long piece on why AI coding assistant pilots stall goes out this week. I'm sending you something different first, because if you're about to start a pilot, or you're halfway through one and starting to worry about the renewal meeting, the useful part is what you do in the first week.
+ 
+ The public piece makes the argument. This edition gives you the part I'd actually hand to a platform lead on a Monday: a week-one measurement checklist. It's at the bottom. Skim to it if you're short on time.
+ 
+-## Two teams, one pilot, one set of numbers
++## Three weeks on paper
+ 
+-A director at a fintech ran a two-team pilot. In week one, one of the two teams agreed to track review turnaround. The other team didn't pick anything.
++An engineering manager kept a paper log of "things I'd have searched for" each day for three weeks. Reading it back, they found most of their assistant use had replaced documentation lookups, not code writing.
+ 
+-When renewal came round, the first team's numbers made the case. The second team's numbers didn't exist. Not bad numbers. No numbers.
++I like this story because it cost nothing. No dashboard, no vendor report, just a list. And it shows how easy it is to pick the wrong measure. A team judging that pilot on code output would have been measuring the part of the job the tool mostly wasn't touching.
+ 
+-I like this story more than the dramatic ones because nothing visibly went wrong. One team made an early agreement about what to track, and that agreement was the difference between evidence and a shrug.
++That's the week-one problem in small. Before you can measure changed work, someone has to agree which work you expect to change.
+ 
+-## What the research says about that hour
++## What the research says about week one
+ 
+-The survey data lines up with the fintech story closely enough to be uncomfortable.
++The survey data shows how rarely that agreement happens.
+ 
+-In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had "no agreed success measure" at launch. So the fintech's second team is the normal case, not the outlier.
++In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had "no agreed success measure" at launch. So a pilot with no agreed measure is the normal case, not the outlier.
+ 
+ Usage tells the same story. Among pilots with no success measure, weekly active use fell from 78% in month one to 41% by month three. Among pilots that had one, it fell from 80% to 66%. Both groups drop. Only one of them collapses.
+ 
+@@ -34,7 +34,7 @@
+ 
+ ## Where I'd hedge
+ 
+-I don't want to sell you a story where measurement always ends in a yes. A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use. Some teams that stall are right to stall.
++I don't want to sell you a story where measurement always ends in a yes. A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use. Not every stalled pilot is a mistake.
+ 
+ That's the point of measuring, though. If you track review turnaround through the pilot and nothing moves, you've learned something useful: don't renew, or change how the team uses it. A seat-activation chart can't tell you either of those things.
+ 
+@@ -52,8 +52,8 @@
+ 2. **Pick one work measure, not an activity measure.** Cycle time or review load is what the 9 Halvorsen companies that all renewed were tracking. Seat activation and prompts per day are activity. Keep them, but don't let them be the headline.
+ 3. **Capture the baseline now.** Pull the last few weeks of your chosen measure before people change how they work. Without it, a good month three has nothing to be compared to.
+ 4. **Write down what "worth renewing" means.** A direction and a rough size of change the team would accept as success. Agree it with whoever signs the renewal, so the day-90 conversation is about evidence against a target you both set.
+-5. **Put the renewal date in the calendar.** Work back from it. If the median decision lands at 94 days, a check-in around day 45 gives you time to fix a measurement gap while it still matters.
+-6. **Set a quiet way to learn what people actually use it for.** One manager in the brief kept a paper log for three weeks and found most assistant use replaced documentation lookups, not code writing. You don't need a log for everyone. One or two volunteers for a few weeks will tell you whether your chosen measure is even pointed at the right work.
++5. **Put the renewal date in the calendar.** Work back from it. If the median decision lands at 94 days, a check-in at the halfway point gives you time to fix a measurement gap while it still matters.
++6. **Set a quiet way to learn what people actually use it for.** The paper log above is the model. You don't need a log for everyone. One or two volunteers for a few weeks will tell you whether your chosen measure is even pointed at the right work.
+ 7. **Decide in advance what a "no" looks like.** If review time doesn't move, as in the Ostrava study, what's the call? Agreeing this early stops a flat result turning into another 90 days of drift.
+ 
+ If you only do two of these, do 1 and 3. An owner and a baseline will get you most of the way to an answer.
+diff -ru drafts/newsletter/ledger.json final/newsletter/ledger.json
+--- drafts/newsletter/ledger.json	2026-10-31 18:32:55.764730367 +0000
++++ final/newsletter/ledger.json	2026-10-31 18:37:10.804745527 +0000
+@@ -3,20 +3,19 @@
+   "thesis": "AI coding assistant pilots stall at renewal because nobody agreed in week one what changed work to measure, so the fix is a one-meeting measurement plan with an owner and a baseline.",
+   "files": ["edition.md"],
+   "anecdotes": [
+-    {"id": "A2", "file": "edition.md", "summary": "Lead story: one fintech team tracked turnaround, other had nothing."},
+-    {"id": "A4", "file": "edition.md", "summary": "Behind-the-scenes note: author's 2024 pilot with no measurement owner."},
+-    {"id": "A3", "file": "edition.md", "summary": "Checklist item 6: paper log showed documentation lookups replaced."}
++    {"id": "A3", "file": "edition.md", "summary": "Lead story: paper log showed documentation lookups, not code; checklist callback."},
++    {"id": "A4", "file": "edition.md", "summary": "Behind-the-scenes note: author's 2024 pilot with no measurement owner."}
+   ],
+   "claims": [
+     {"id": "E1", "file": "edition.md", "statement": "In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had \"no agreed success measure\" at launch.", "figures": ["2026", "1,240", "March 2026", "61%"]},
+     {"id": "E2", "file": "edition.md", "statement": "Among pilots with no success measure, weekly active use fell from 78% in month one to 41% by month three. Among pilots that had one, it fell from 80% to 66%.", "figures": ["78%", "41%", "80%", "66%"]},
+     {"id": "E3", "file": "edition.md", "statement": "Halvorsen Research's 2026 platform team report, built on interviews at 32 companies, found the median pilot ran 94 days before a renewal decision.", "figures": ["2026", "32", "94 days"]},
+     {"id": "E4", "file": "edition.md", "statement": "Of those 32 companies, 9 tracked any change in cycle time or review load during the pilot. All 9 renewed. Of the 23 that tracked only seat activation, 11 renewed. ... 11 of those 23 still renewed.", "figures": ["32", "9", "23", "11"]},
+-    {"id": "E5", "file": "edition.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use. Some teams that stall are right to stall.", "figures": ["2025", "400"]},
++    {"id": "E5", "file": "edition.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use. Not every stalled pilot is a mistake.", "figures": ["2025", "400"]},
+     {"id": "E4", "file": "edition.md", "statement": "Checklist item 2: Cycle time or review load is what the 9 Halvorsen companies that all renewed were tracking.", "figures": ["9"]},
+-    {"id": "E3", "file": "edition.md", "statement": "Checklist item 5: If the median decision lands at 94 days, a check-in around day 45 gives you time to fix a measurement gap while it still matters.", "figures": ["94 days", "45"]},
++    {"id": "E3", "file": "edition.md", "statement": "Checklist item 5: If the median decision lands at 94 days, a check-in at the halfway point gives you time to fix a measurement gap while it still matters.", "figures": ["94 days"]},
+     {"id": "E5", "file": "edition.md", "statement": "Checklist item 7: If review time doesn't move, as in the Ostrava study, what's the call?", "figures": []}
+   ],
+   "gaps": [],
+-  "notes": "Day 45 check-in and the 90-day drift phrasing in the checklist are the author's practical advice, not brief figures. Exclusive element for subscribers: the 7-item week-one measurement checklist. A1 (logistics CFO meeting) deliberately left for the long piece."
++  "notes": "The halfway check-in and the 90-day drift phrasing in the checklist are the author's practical advice, not brief figures. Exclusive element for subscribers: the 7-item week-one measurement checklist. In reconciliation, A2 (fintech two-team pilot) moved to the talk and A1 (logistics CFO meeting) stays with the long piece; A3 became this edition's lead."
+ }
+diff -ru drafts/proof-points/proof-points.md final/proof-points/proof-points.md
+--- drafts/proof-points/proof-points.md	2026-10-31 18:32:10.872727698 +0000
++++ final/proof-points/proof-points.md	2026-10-31 18:37:13.928745713 +0000
+@@ -51,7 +51,7 @@
+ - evidence_id: E4
+ - confidence: VERIFIED
+ - safe_phrasing: "In Halvorsen's 2026 sample of 32 companies, all 9 that tracked cycle time or review load renewed. Of the 23 that tracked only seat activation, 11 did."
+-- do_not_say: "Tracking changed work guarantees renewal" or "100% renewal rate." Nine companies is a small group, and the link is correlation. Don't convert 11 of 23 into a percentage the brief doesn't give.
++- do_not_say: "Tracking changed work guarantees renewal," or any renewal rate stated as a percentage. Nine companies is a small group, and the link is correlation. Don't convert 9 of 9 or 11 of 23 into percentages the brief doesn't give.
+ - recheck_by: 2027-05-31
+ 
+ ### PP-review-time-counterpoint
+diff -ru drafts/talk/ledger.json final/talk/ledger.json
+--- drafts/talk/ledger.json	2026-10-31 18:33:43.516733205 +0000
++++ final/talk/ledger.json	2026-10-31 18:37:32.828746836 +0000
+@@ -3,9 +3,7 @@
+   "thesis": "Coding assistant pilots stall around day 90 because teams count seat activation instead of changed work, so the fix is one agreed measure with a named owner from week one.",
+   "files": ["outline.md"],
+   "anecdotes": [
+-    {"id": "A2", "file": "outline.md", "summary": "Central story: fintech two-team pilot, opens and closes talk."},
+-    {"id": "A3", "file": "outline.md", "summary": "Paper log shows how to choose what to measure."},
+-    {"id": "A4", "file": "outline.md", "summary": "Author's 2024 pilot: no measurement owner until budget cut."}
++    {"id": "A2", "file": "outline.md", "summary": "Central story: fintech two-team pilot, opens and closes talk."},    {"id": "A4", "file": "outline.md", "summary": "Author's 2024 pilot: no measurement owner until budget cut."}
+   ],
+   "claims": [
+     {"id": "E3", "file": "outline.md", "statement": "Abstract: Halvorsen Research's 2026 report on 32 companies.", "figures": ["2026", "32"]},
+diff -ru drafts/talk/outline.md final/talk/outline.md
+--- drafts/talk/outline.md	2026-10-31 18:33:34.904732693 +0000
++++ final/talk/outline.md	2026-10-31 18:37:30.584746703 +0000
+@@ -8,7 +8,7 @@
+ ## Slide 1: Two teams, one pilot
+ - on_slide: One fintech pilot. Two teams. Only one had numbers.
+ - visual: Two columns labelled "Team 1" and "Team 2". Team 1 has a heading, "review turnaround". Team 2's column is empty.
+-- speaker_notes: A director at a fintech ran a coding assistant pilot across two teams. Same pilot, same renewal decision at the end. In week one, one of those teams agreed to track a single thing: review turnaround. The other team didn't agree to track anything. When renewal came round, the first team's numbers made the case. The second team's numbers didn't exist. They weren't bad numbers. There were no numbers. I want to spend the next 20 minutes on why that second team is the normal case, and on what the first team did that you can copy at your next kickoff.
++- speaker_notes: A director at a fintech ran a coding assistant pilot across two teams. Same pilot, same renewal decision at the end. In week one, one of those teams agreed to track a single thing: review turnaround. The other team didn't agree to track anything. When renewal came round, the first team's numbers made the case. The second team's numbers didn't exist. They weren't bad numbers. There were no numbers. I want to spend the rest of this talk on why that second team is the normal case, and on what the first team did that you can copy at your next kickoff.
+ - minutes: 2
+ - sources: A2
+ 
+@@ -62,11 +62,11 @@
+ - sources: E5
+ 
+ ## Slide 9: Watch what people actually use it for
+-- on_slide: One manager's paper log: mostly documentation lookups, not code
+-- visual: Illustrative mock-up of a handwritten log page headed "things I'd have searched for", one line per day. Label it as a reconstruction.
+-- speaker_notes: How do you pick what to measure? One engineering manager did something very low-tech. Every day for three weeks, they kept a paper log of "things I'd have searched for." What they found was that most of their assistant use replaced documentation lookups, not code writing. That matters for your measure. If you'd set your target around code output, you'd be measuring the wrong part of the job. Spend the first week or two watching what people actually use the tool for, then lock in the measure.
++- on_slide: Check that your measure points at the work people actually do with the tool
++- visual: Two columns: "what we planned to measure" and "what people used it for". The second column is blank, for the team to fill in.
++- speaker_notes: How do you pick what to measure? Start by asking what the team expects to reach for the tool to do. If your target is built around code output and people mostly use the assistant for something else, you'll be measuring the wrong part of the job. Do this check in week one, alongside picking the measure, so the baseline you take still means something. If it turns out the measure is aimed at the wrong work, adjust it early and write down why.
+ - minutes: 1.5
+-- sources: A3
++- sources: none (practice)
+ 
+ ## Slide 10: Put a name on the measurement plan
+ - on_slide: Name one owner for the measurement plan in week one
+@@ -78,9 +78,9 @@
+ ## Slide 11: Pick one measure of changed work
+ - on_slide: One measure: cycle time or review load. Start there.
+ - visual: Two cards side by side, "cycle time" and "review load". Below them, a smaller card: "fintech team: review turnaround".
+-- speaker_notes: You don't need a dashboard. The 9 Halvorsen companies that all renewed tracked any change in cycle time or review load. The fintech team picked review turnaround. Pick one, take a baseline before the tool goes out, and check it at the same interval every time. If your paper-log week tells you people mostly use the tool for lookups, choose something that would show that, and say so at the start. The measure has to be agreed by the team and honest about what it can and can't show.
++- speaker_notes: You don't need a dashboard. The 9 Halvorsen companies that all renewed tracked any change in cycle time or review load. The fintech team picked review turnaround. Pick one, take a baseline before the tool goes out, and check it at the same interval every time. If your week-one check tells you people mostly use the tool for something other than writing code, choose a measure that would show that, and say so at the start. The measure has to be agreed by the team and honest about what it can and can't show.
+ - minutes: 1.5
+-- sources: E4, A2, A3
++- sources: E4, A2
+ 
+ ## Slide 12: What to bring to day 90
+ - on_slide: Bring a before-and-after, then your recommendation

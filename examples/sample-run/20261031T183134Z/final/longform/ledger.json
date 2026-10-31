@@ -1,0 +1,29 @@
+{
+  "channel": "longform",
+  "thesis": "Most AI coding assistant pilots don't fail on model quality; they stall around day 90 because the organisation measured seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+  "files": ["article.md"],
+  "anecdotes": [
+    {"id": "A1", "file": "article.md", "summary": "Opening scene: CFO asks what changed, 92% activation slide; callback in close."}
+  ],
+  "claims": [
+    {"id": "E3", "file": "article.md", "statement": "Halvorsen Research interviewed platform teams at 32 companies for its May 2026 report, \"Platform teams and AI tooling.\" The median pilot in that group ran 94 days before a renewal decision.", "figures": ["32", "May 2026", "94"]},
+    {"id": "E1", "file": "article.md", "statement": "The Northfield Developer Survey 2026 asked 1,240 developers in March 2026 about their company's assistant pilot. 61% said the pilot had \"no agreed success measure\" at launch.", "figures": ["2026", "1,240", "March 2026", "61%"]},
+    {"id": "E2", "file": "article.md", "statement": "Among pilots with no success measure, weekly active use fell from 78% in month one to 41% by month three. Among pilots that had one, it fell from 80% to 66%.", "figures": ["78%", "41%", "80%", "66%"]},
+    {"id": "E2", "file": "article.md", "statement": "By month three the pilots without a measure were at 41% weekly active use against 66% for pilots with one.", "figures": ["41%", "66%"]},
+    {"id": "E3", "file": "article.md", "statement": "The point where weekly use has slid furthest in unmeasured pilots is about when the median pilot in Halvorsen's group faces its renewal call.", "figures": []},
+    {"id": "E4", "file": "article.md", "statement": "Of the 32 companies, 9 tracked any change in cycle time or review load during the pilot. All 9 renewed. Of the 23 that tracked only seat activation, 11 renewed.", "figures": ["32", "9", "9", "23", "11"]},
+    {"id": "E4", "file": "article.md", "statement": "11 of 23 companies renewed with nothing but activation data; fewer than half of them survived.", "figures": ["11", "23"]},
+    {"id": "E4", "file": "article.md", "statement": "9 is a small group, and 9 out of 9 is a result that invites overreading.", "figures": ["9", "9", "9"]},
+    {"id": "E3", "file": "article.md", "statement": "Halvorsen's data come from interviews with 32 companies, not a controlled trial.", "figures": ["32"]},
+    {"id": "E4", "file": "article.md", "statement": "When the CFO asks what changed, those 9 companies had something to show. The other 23 had a usage chart.", "figures": ["9", "23"]},
+    {"id": "E4", "file": "article.md", "statement": "Halvorsen counted companies that tracked any change in cycle time or review load.", "figures": []},
+    {"id": "E5", "file": "article.md", "statement": "A November 2025 Ostrava University study, \"Assistant use and review latency,\" looked at 400 pull requests and found no measurable change in review time with assistant use.", "figures": ["November 2025", "400"]},
+    {"id": "E4", "file": "article.md", "statement": "It should change how you read Halvorsen's 9 out of 9.", "figures": ["9", "9"]},
+    {"id": "E5", "file": "article.md", "statement": "It's one study of 400 pull requests, and review time is one measure among several.", "figures": ["400"]},
+    {"id": "E4", "file": "article.md", "statement": "Halvorsen counted any change in cycle time or review load. Pick the one your code review tool already records.", "figures": []},
+    {"id": "E3", "file": "article.md", "statement": "The median pilot in Halvorsen's group ran 94 days.", "figures": ["94"]},
+    {"id": "E2", "file": "article.md", "statement": "Northfield's month-three numbers, 41% for pilots with no success measure and 66% for pilots with one, are the drop to watch for.", "figures": ["41%", "66%"]},
+    {"id": "E5", "file": "article.md", "statement": "Given Ostrava's finding on review time, agree before the pilot starts what you'll do if your measure doesn't move.", "figures": []}
+  ],
+  "gaps": []
+}

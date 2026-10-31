@@ -1,0 +1,22 @@
+{
+  "channel": "newsletter",
+  "thesis": "AI coding assistant pilots stall at renewal because nobody agreed in week one what changed work to measure, so the fix is a one-meeting measurement plan with an owner and a baseline.",
+  "files": ["edition.md"],
+  "anecdotes": [
+    {"id": "A2", "file": "edition.md", "summary": "Lead story: one fintech team tracked turnaround, other had nothing."},
+    {"id": "A4", "file": "edition.md", "summary": "Behind-the-scenes note: author's 2024 pilot with no measurement owner."},
+    {"id": "A3", "file": "edition.md", "summary": "Checklist item 6: paper log showed documentation lookups replaced."}
+  ],
+  "claims": [
+    {"id": "E1", "file": "edition.md", "statement": "In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had \"no agreed success measure\" at launch.", "figures": ["2026", "1,240", "March 2026", "61%"]},
+    {"id": "E2", "file": "edition.md", "statement": "Among pilots with no success measure, weekly active use fell from 78% in month one to 41% by month three. Among pilots that had one, it fell from 80% to 66%.", "figures": ["78%", "41%", "80%", "66%"]},
+    {"id": "E3", "file": "edition.md", "statement": "Halvorsen Research's 2026 platform team report, built on interviews at 32 companies, found the median pilot ran 94 days before a renewal decision.", "figures": ["2026", "32", "94 days"]},
+    {"id": "E4", "file": "edition.md", "statement": "Of those 32 companies, 9 tracked any change in cycle time or review load during the pilot. All 9 renewed. Of the 23 that tracked only seat activation, 11 renewed. ... 11 of those 23 still renewed.", "figures": ["32", "9", "23", "11"]},
+    {"id": "E5", "file": "edition.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use. Some teams that stall are right to stall.", "figures": ["2025", "400"]},
+    {"id": "E4", "file": "edition.md", "statement": "Checklist item 2: Cycle time or review load is what the 9 Halvorsen companies that all renewed were tracking.", "figures": ["9"]},
+    {"id": "E3", "file": "edition.md", "statement": "Checklist item 5: If the median decision lands at 94 days, a check-in around day 45 gives you time to fix a measurement gap while it still matters.", "figures": ["94 days", "45"]},
+    {"id": "E5", "file": "edition.md", "statement": "Checklist item 7: If review time doesn't move, as in the Ostrava study, what's the call?", "figures": []}
+  ],
+  "gaps": [],
+  "notes": "Day 45 check-in and the 90-day drift phrasing in the checklist are the author's practical advice, not brief figures. Exclusive element for subscribers: the 7-item week-one measurement checklist. A1 (logistics CFO meeting) deliberately left for the long piece."
+}

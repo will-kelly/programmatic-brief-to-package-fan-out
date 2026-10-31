@@ -1,0 +1,19 @@
+{
+  "channel": "linkedin",
+  "thesis": "AI coding assistant pilots stall around day 90 because teams measure seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+  "files": ["post-01.md", "post-02.md", "post-03.md", "post-04.md", "series-plan.md"],
+  "anecdotes": [
+    {"id": "A1", "file": "post-02.md", "summary": "Hook and frame: CFO asks what changed, 92% activation slide."},
+    {"id": "A2", "file": "post-03.md", "summary": "Two-team fintech pilot; week-one review-turnaround metric made renewal case."}
+  ],
+  "claims": [
+    {"id": "E3", "file": "post-01.md", "statement": "Halvorsen Research interviewed 32 companies for its May 2026 report on platform teams and AI tooling. The median pilot ran 94 days before a renewal decision.", "figures": ["32", "May 2026", "94"]},
+    {"id": "E4", "file": "post-01.md", "statement": "9 of those 32 companies tracked any change in cycle time or review load during the pilot. All 9 renewed. The other 23 tracked only seat activation. 11 of them renewed.", "figures": ["9", "32", "9", "23", "11"]},
+    {"id": "E1", "file": "post-02.md", "statement": "In the Northfield Developer Survey 2026 (n=1,240 developers, fielded March 2026), 61% said their company's assistant pilot had \"no agreed success measure\" at launch.", "figures": ["2026", "1,240", "March 2026", "61%"]},
+    {"id": "E2", "file": "post-03.md", "statement": "In the Northfield Developer Survey 2026, weekly active use in pilots with no success measure fell from 78% in month one to 41% by month three. In pilots that had one, it went from 80% to 66%.", "figures": ["2026", "78%", "41%", "80%", "66%"]},
+    {"id": "E5", "file": "post-04.md", "statement": "A 2025 Ostrava University study of 400 pull requests found no measurable change in review time with assistant use.", "figures": ["2025", "400"]},
+    {"id": "E5", "file": "post-04.md", "statement": "It's one study, 400 pull requests, and one metric.", "figures": ["400"]},
+    {"id": "E4", "file": "post-04.md", "statement": "In Halvorsen Research's 2026 report, 11 of the 23 companies that tracked only seat activation renewed.", "figures": ["2026", "11", "23"]}
+  ],
+  "gaps": []
+}

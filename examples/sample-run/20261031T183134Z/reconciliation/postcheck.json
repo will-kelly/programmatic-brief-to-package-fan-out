@@ -1,0 +1,83 @@
+{
+  "stage": "final",
+  "channels": [
+    "longform",
+    "linkedin",
+    "newsletter",
+    "proof-points",
+    "talk"
+  ],
+  "errors": 0,
+  "warnings": 0,
+  "issues": [],
+  "anecdote_usage": {
+    "A1": [
+      "longform"
+    ],
+    "A3": [
+      "newsletter"
+    ],
+    "A4": [
+      "newsletter",
+      "talk"
+    ],
+    "A2": [
+      "talk"
+    ]
+  },
+  "evidence_usage": {
+    "E3": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E1": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E2": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E4": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ],
+    "E5": [
+      "longform",
+      "linkedin",
+      "newsletter",
+      "proof-points",
+      "talk"
+    ]
+  },
+  "unused_anecdotes": [],
+  "shared_anecdotes": [
+    "A4"
+  ],
+  "theses": {
+    "longform": "Most AI coding assistant pilots don't fail on model quality; they stall around day 90 because the organisation measured seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+    "linkedin": "AI coding assistant pilots stall around day 90 because teams measure seat activation instead of changed work, so the renewal decision arrives with no evidence either way.",
+    "newsletter": "AI coding assistant pilots stall at renewal because nobody agreed in week one what changed work to measure, so the fix is a one-meeting measurement plan with an owner and a baseline.",
+    "proof-points": "AI coding assistant pilots stall around day 90 because organisations measure seat activation instead of changed work, leaving no evidence at the renewal decision.",
+    "talk": "Coding assistant pilots stall around day 90 because teams count seat activation instead of changed work, so the fix is one agreed measure with a named owner from week one."
+  },
+  "tk_count": {
+    "longform": 0,
+    "linkedin": 0,
+    "newsletter": 0,
+    "proof-points": 7,
+    "talk": 2
+  }
+}
