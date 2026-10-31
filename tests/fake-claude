@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+# Offline stand-in for `claude -p`, used by tests/test.sh.
+#
+# It reads FANOUT_AGENT to know which role it's playing, writes plausible
+# channel files plus a ledger, and prints a JSON result like the real CLI.
+# The writers deliberately plant two problems for the pipeline to catch:
+#   - linkedin and newsletter both use anecdote A1
+#   - newsletter cites E2 with a figure (45%) that isn't in the brief
+# The editor fixes both, the way the real editor is asked to.
+#
+# FAKE_FAIL=<agent> makes that agent fail. FAKE_SLEEP sets per-agent seconds.
+# FAKE_EDITOR_NOOP=1 makes the editor change nothing, so the postcheck fails.
+
+set -euo pipefail
+agent="${FANOUT_AGENT:?FANOUT_AGENT not set}"
+printf '%s %s start\n' "$(date +%s.%N)" "$agent" >>"${FAKE_TRACE:-/dev/null}"
+sleep "${FAKE_SLEEP:-1}"
+
+if [[ "${FAKE_FAIL:-}" == "$agent" ]]; then
+  echo "simulated failure" >&2
+  exit 1
+fi
+
+result() {
+  printf '{"type":"result","is_error":false,"duration_ms":1000,"num_turns":3,"total_cost_usd":0.01,"result":"%s"}\n' "$1"
+}
+
+d="drafts/$agent"
+case "$agent" in
+  longform)
+    cat >"$d/article.md" <<'EOF'
+---
+title: Your AI pilot needs a day-one success measure
+dek: Pilots stall at day 90 because nobody agreed what changed work looks like.
+word_count: 120
+---
+
+The CFO asked what had changed, and the only slide was a seat-activation chart at 92%.
+
+In one survey, 61% of developers said their pilot had no agreed success measure.
+EOF
+    cat >"$d/ledger.json" <<'EOF'
+{"channel":"longform","thesis":"Pilots stall because they measure activation, not changed work.",
+ "files":["article.md"],
+ "anecdotes":[{"id":"A1","file":"article.md","summary":"CFO day-90 meeting"}],
+ "claims":[{"id":"E1","file":"article.md","statement":"61% had no agreed success measure","figures":["61%"]}],
+ "gaps":[]}
+EOF
+    ;;
+  linkedin)
+    printf 'Day 90 is where AI pilots go quiet.\n\nA lead showed a 92%% activation chart to the CFO.\n' >"$d/post-01.md"
+    printf 'Measure review turnaround from week one.\n\nOne team did, and it made the renewal case.\n' >"$d/post-02.md"
+    printf '| Post | Idea |\n|---|---|\n| 1 | day 90 |\n| 2 | measure early |\n' >"$d/series-plan.md"
+    cat >"$d/ledger.json" <<'EOF'
+{"channel":"linkedin","thesis":"Measure changed work from week one or the pilot dies at day 90.",
+ "files":["post-01.md","post-02.md","series-plan.md"],
+ "anecdotes":[{"id":"A1","file":"post-01.md","summary":"activation chart"},
+              {"id":"A2","file":"post-02.md","summary":"two-team pilot"}],
+ "claims":[],"gaps":[]}
+EOF
+    ;;
+  newsletter)
+    printf -- '---\nsubject_lines:\n  - The day-90 slide\npreview_text: What to measure\n---\n\nThe CFO asked what changed and saw a 92%% chart.\n\nActive use fell to 45%% by month three.\n' >"$d/edition.md"
+    cat >"$d/ledger.json" <<'EOF'
+{"channel":"newsletter","thesis":"Seat activation is the wrong pilot metric.",
+ "files":["edition.md"],
+ "anecdotes":[{"id":"A1","file":"edition.md","summary":"CFO meeting"}],
+ "claims":[{"id":"E2","file":"edition.md","statement":"Active use fell to 45%","figures":["45%"]}],
+ "gaps":[]}
+EOF
+    ;;
+  proof-points)
+    printf '### PP-no-success-measure\n- action: ADD\n- claim: 61%% of developers said their pilot had no agreed success measure.\n- evidence_id: E1\n- confidence: VERIFIED\n- recheck_by: 2027-04-30\n' >"$d/proof-points.md"
+    cat >"$d/ledger.json" <<'EOF'
+{"channel":"proof-points","thesis":"","files":["proof-points.md"],"anecdotes":[],
+ "claims":[{"id":"E1","file":"proof-points.md","statement":"61% no success measure","figures":["61%","1,240"]}],
+ "gaps":[]}
+EOF
+    ;;
+  talk)
+    printf -- '---\ntalk_title: The day-90 problem\nslide_count: 1\n---\n\n## Slide 1: The paper log\n- on_slide: What would I have searched for?\n- minutes: 2\n' >"$d/outline.md"
+    cat >"$d/ledger.json" <<'EOF'
+{"channel":"talk","thesis":"Find out what work actually changed.","files":["outline.md"],
+ "anecdotes":[{"id":"A3","file":"outline.md","summary":"paper log"}],
+ "claims":[],"gaps":[]}
+EOF
+    ;;
+  editor)
+    if [[ -n "${FAKE_EDITOR_NOOP:-}" ]]; then
+      printf '# Reconciliation report\n\nNo changes.\n' >reconciliation/report.md
+      result "fake editor did nothing"; exit 0
+    fi
+    # Keep A1 in longform. Swap linkedin post 1 and the newsletter to unused A4/no
+    # anecdote, and fix the newsletter's figure to the brief's 41%.
+    printf 'Day 90 is where AI pilots go quiet.\n\nNobody owned the measurement plan until the budget was cut.\n' >final/linkedin/post-01.md
+    cat >final/linkedin/ledger.json <<'EOF'
+{"channel":"linkedin","thesis":"Measure changed work from week one or the pilot dies at day 90.",
+ "files":["post-01.md","post-02.md","series-plan.md"],
+ "anecdotes":[{"id":"A4","file":"post-01.md","summary":"nobody owned measurement"},
+              {"id":"A2","file":"post-02.md","summary":"two-team pilot"}],
+ "claims":[],"gaps":[]}
+EOF
+    printf -- '---\nsubject_lines:\n  - The day-90 slide\npreview_text: What to measure\n---\n\nHere is the measure to agree on in week one.\n\nActive use fell to 41%% by month three.\n' >final/newsletter/edition.md
+    cat >final/newsletter/ledger.json <<'EOF'
+{"channel":"newsletter","thesis":"Seat activation is the wrong pilot metric.",
+ "files":["edition.md"],"anecdotes":[],
+ "claims":[{"id":"E2","file":"edition.md","statement":"Active use fell to 41%","figures":["41%"]}],
+ "gaps":[]}
+EOF
+    printf '# Reconciliation report\n\n## Summary\nMoved A1 out of linkedin and newsletter; fixed E2 figure.\n' >reconciliation/report.md
+    ;;
+  *) echo "fake-claude: unknown agent $agent" >&2; exit 1 ;;
+esac
+
+printf '%s %s end\n' "$(date +%s.%N)" "$agent" >>"${FAKE_TRACE:-/dev/null}"
+result "fake $agent done"

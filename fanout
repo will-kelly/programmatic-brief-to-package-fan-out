@@ -1,0 +1,383 @@
+#!/usr/bin/env bash
+# fanout: turn one research brief into a five-channel content package.
+#
+# Five writer agents run in parallel (long piece, LinkedIn series, newsletter,
+# proof-point updates, talk outline), each confined to its own directory. A
+# reconciliation editor then reads all of them and fixes contradictions and
+# anecdote reuse. Every run lands in runs/<slug>/<run-id>/ so you can diff it
+# against the last one.
+#
+# Usage:
+#   ./fanout                      process new or changed briefs in briefs/inbox/
+#   ./fanout run BRIEF [--force]  run one brief (--force reruns an unchanged brief)
+#   ./fanout watch [SECONDS]      poll the inbox and run briefs as they appear
+#   ./fanout diff SLUG [A [B]]    diff final output of two runs (default: last two)
+#   ./fanout list [SLUG]          list runs
+#   ./fanout help
+#
+# Environment:
+#   FANOUT_CLAUDE         claude binary (default: claude)
+#   FANOUT_MODEL          model for the writers (default: claude's default)
+#   FANOUT_EDITOR_MODEL   model for the editor (default: FANOUT_MODEL)
+#   FANOUT_CHANNELS       comma list (default: longform,linkedin,newsletter,proof-points,talk)
+#   FANOUT_TIMEOUT        seconds per agent before it's killed (default: 900)
+#   FANOUT_RETRIES        retries per failed agent (default: 1)
+#   FANOUT_MAX_BUDGET_USD spend cap per agent, passed to claude (default: none)
+#   FANOUT_CLAUDE_ARGS    extra flags for every claude call, space-separated
+#   FANOUT_RUNS_DIR       where runs go (default: ./runs)
+#   FANOUT_INBOX          where briefs are dropped (default: ./briefs/inbox)
+#   FANOUT_STRICT         1 = exit non-zero if the post-edit check finds errors (default: 1)
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CLAUDE="${FANOUT_CLAUDE:-claude}"
+CHANNELS="${FANOUT_CHANNELS:-longform,linkedin,newsletter,proof-points,talk}"
+TIMEOUT_S="${FANOUT_TIMEOUT:-900}"
+RETRIES="${FANOUT_RETRIES:-1}"
+RUNS_DIR="${FANOUT_RUNS_DIR:-$ROOT/runs}"
+INBOX="${FANOUT_INBOX:-$ROOT/briefs/inbox}"
+STRICT="${FANOUT_STRICT:-1}"
+PY="${PYTHON:-python3}"
+LEDGER="$ROOT/lib/ledger.py"
+
+log()  { printf '%s %s\n' "$(date +%H:%M:%S)" "$*" >&2; }
+die()  { printf 'fanout: %s\n' "$*" >&2; exit 2; }
+
+timeout_cmd() {
+  if command -v timeout >/dev/null 2>&1; then echo "timeout $TIMEOUT_S"
+  elif command -v gtimeout >/dev/null 2>&1; then echo "gtimeout $TIMEOUT_S"
+  else echo ""; fi
+}
+
+# ---------------------------------------------------------------------------
+# One agent invocation. Runs in the run directory with write access limited
+# to the given paths. Writes logs/<name>.json (claude's result) and .err.
+
+run_agent() {
+  local run_dir="$1" name="$2" prompt_file="$3" message="$4" model="$5"
+  shift 5
+  local -a write_paths=("$@")
+  local -a allowed=(Read Glob Grep)
+  local p
+  for p in "${write_paths[@]}"; do allowed+=("Edit(./$p/**)" "Write(./$p/**)"); done
+
+  local -a extra=()
+  [[ -n "$model" ]] && extra+=(--model "$model")
+  [[ -n "${FANOUT_MAX_BUDGET_USD:-}" ]] && extra+=(--max-budget-usd "$FANOUT_MAX_BUDGET_USD")
+  # shellcheck disable=SC2206  # word-splitting is the point
+  [[ -n "${FANOUT_CLAUDE_ARGS:-}" ]] && extra+=($FANOUT_CLAUDE_ARGS)
+
+  local attempt=0 rc=0 tcmd
+  tcmd="$(timeout_cmd)"
+  while :; do
+    rc=0
+    (
+      cd "$run_dir"
+      FANOUT_AGENT="$name" $tcmd "$CLAUDE" -p "$message" \
+        --append-system-prompt "$(cat "$prompt_file")" \
+        --tools "Read,Write,Edit,Glob,Grep" \
+        --allowedTools "${allowed[@]}" \
+        --permission-mode dontAsk \
+        --strict-mcp-config \
+        --no-session-persistence \
+        --output-format json \
+        ${extra[@]+"${extra[@]}"} \
+        >"logs/$name.json" 2>"logs/$name.err" </dev/null
+    ) || rc=$?
+    if [[ $rc -eq 0 ]] && "$PY" -c 'import json,sys; sys.exit(1 if json.load(open(sys.argv[1])).get("is_error") else 0)' "$run_dir/logs/$name.json" 2>/dev/null; then
+      return 0
+    fi
+    [[ $rc -eq 0 ]] && rc=1
+    if (( attempt >= RETRIES )); then return "$rc"; fi
+    attempt=$((attempt + 1))
+    log "  $name failed (exit $rc), retry $attempt/$RETRIES"
+  done
+}
+
+build_prompt() {
+  # build_prompt OUT ROLE_FILE [extra text]
+  local out="$1" role="$2" extra="${3:-}"
+  {
+    cat "$ROOT/agents/_contract.md"
+    printf '\n\n---\n\n'
+    cat "$role"
+    if [[ -n "$extra" ]]; then printf '\n\n%s\n' "$extra"; fi
+  } >"$out"
+}
+
+previous_run() {
+  # previous_run SLUG_DIR CURRENT_ID -> newest run id older than CURRENT_ID
+  local slug_dir="$1" current="$2" d best=""
+  for d in "$slug_dir"/*/; do
+    [[ -L "${d%/}" ]] && continue
+    d="$(basename "$d")"
+    [[ "$d" == "$current" || ! -d "$slug_dir/$d/final" ]] && continue
+    [[ "$d" < "$current" && "$d" > "$best" ]] && best="$d"
+  done
+  printf '%s' "$best"
+}
+
+# ---------------------------------------------------------------------------
+# A full run
+
+cmd_run() {
+  local brief="" force=0
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --force) force=1 ;;
+      -*) die "unknown flag $1" ;;
+      *) brief="$1" ;;
+    esac
+    shift
+  done
+  [[ -n "$brief" && -f "$brief" ]] || die "run needs a brief file (got '${brief:-nothing}')"
+  command -v "$CLAUDE" >/dev/null 2>&1 || die "can't find claude binary '$CLAUDE'"
+
+  local slug brief_sha slug_dir
+  slug="$("$PY" "$LEDGER" slug "$brief")"
+  brief_sha="$("$PY" "$LEDGER" hash "$brief")"
+  slug_dir="$RUNS_DIR/$slug"
+  mkdir -p "$slug_dir"
+
+  if [[ $force -eq 0 && -f "$slug_dir/.brief-sha" && "$(cat "$slug_dir/.brief-sha")" == "$brief_sha" ]]; then
+    log "$slug: brief unchanged since the last run, skipping (use --force to rerun)"
+    return 0
+  fi
+
+  if ! mkdir "$slug_dir/.lock" 2>/dev/null; then
+    die "$slug: another run holds $slug_dir/.lock (remove it if that run is dead)"
+  fi
+  trap 'rm -rf "'"$slug_dir"'/.lock"' EXIT INT TERM
+  local rc
+  set +e
+  ( set -e; do_run "$brief" "$slug" "$brief_sha" "$slug_dir" )
+  rc=$?
+  set -e
+  rm -rf "$slug_dir/.lock"
+  trap - EXIT INT TERM
+  return $rc
+}
+
+do_run() {
+  local brief="$1" slug="$2" brief_sha="$3" slug_dir="$4" run_id run_dir
+  run_id="$(date -u +%Y%m%dT%H%M%SZ)"
+  while [[ -e "$slug_dir/$run_id" ]]; do sleep 1; run_id="$(date -u +%Y%m%dT%H%M%SZ)"; done
+  run_dir="$slug_dir/$run_id"
+  mkdir -p "$run_dir"/{drafts,final,reconciliation,logs,prompts}
+  local started; started="$(date +%s)"
+
+  cp "$brief" "$run_dir/brief.md"
+  cp "$ROOT/config/voice.md" "$run_dir/voice.md"
+  [[ -f "$ROOT/config/proof-point-bank.md" ]] && cp "$ROOT/config/proof-point-bank.md" "$run_dir/bank.md"
+  chmod a-w "$run_dir/brief.md" "$run_dir/voice.md"
+  [[ -f "$run_dir/bank.md" ]] && chmod a-w "$run_dir/bank.md"
+
+  log "$slug: run $run_id"
+  log "  writers: ${CHANNELS//,/ } (parallel)"
+
+  # --- fan out ---------------------------------------------------------------
+  local -a chans pids
+  IFS=',' read -r -a chans <<<"$CHANNELS"
+  local ch i
+  declare -A status
+  for ch in "${chans[@]}"; do
+    [[ -f "$ROOT/agents/$ch.md" ]] || die "no agent definition at agents/$ch.md"
+    mkdir -p "$run_dir/drafts/$ch"
+    build_prompt "$run_dir/prompts/$ch.md" "$ROOT/agents/$ch.md"
+    run_agent "$run_dir" "$ch" "$run_dir/prompts/$ch.md" \
+      "Channel: $ch. Read ./brief.md and ./voice.md, then write your deliverables and ledger.json into ./drafts/$ch/. Write nothing anywhere else." \
+      "${FANOUT_MODEL:-}" "drafts/$ch" &
+    pids+=($!)
+  done
+
+  local failed=0
+  for i in "${!chans[@]}"; do
+    ch="${chans[$i]}"
+    if wait "${pids[$i]}"; then
+      status[$ch]="ok"; log "  done: $ch"
+    else
+      status[$ch]="failed"; failed=$((failed + 1)); log "  FAILED: $ch (see logs/$ch.err)"
+    fi
+  done
+
+  local ok_chans=""
+  for ch in "${chans[@]}"; do [[ "${status[$ch]}" == ok ]] && ok_chans+="${ok_chans:+,}$ch"; done
+  [[ -n "$ok_chans" ]] || { log "  every writer failed, stopping"; write_manifest "$run_dir" "$slug" "$run_id" "$brief" "$brief_sha" "$started" "failed" status; return 1; }
+
+  # --- mechanical precheck ---------------------------------------------------
+  "$PY" "$LEDGER" check --run "$run_dir" --stage drafts --channels "$ok_chans" \
+    --out "$run_dir/reconciliation/precheck" | sed 's/^/  precheck /' >&2
+
+  # --- reconcile -------------------------------------------------------------
+  for ch in ${ok_chans//,/ }; do cp -R "$run_dir/drafts/$ch" "$run_dir/final/$ch"; done
+  find "$run_dir/drafts" -type f -exec chmod a-w {} +
+
+  log "  editor: reconciling $ok_chans"
+  local note="Channels in this run: $ok_chans."
+  if (( failed > 0 )); then
+    note+=" These writers failed and produced nothing, so don't reconcile against them:"
+    for ch in "${chans[@]}"; do [[ "${status[$ch]}" != ok ]] && note+=" $ch"; done
+  fi
+  build_prompt "$run_dir/prompts/editor.md" "$ROOT/agents/editor.md" "$note"
+  if run_agent "$run_dir" editor "$run_dir/prompts/editor.md" \
+      "Reconcile the package. Start with ./reconciliation/precheck.md, read every channel in ./final/, fix what's wrong in place, update the ledgers, and write ./reconciliation/report.md." \
+      "${FANOUT_EDITOR_MODEL:-${FANOUT_MODEL:-}}" final reconciliation; then
+    status[editor]="ok"; log "  done: editor"
+  else
+    status[editor]="failed"; failed=$((failed + 1)); log "  FAILED: editor (see logs/editor.err)"
+  fi
+
+  # --- postcheck, diffs, manifest -------------------------------------------
+  local post_rc=0
+  "$PY" "$LEDGER" check --run "$run_dir" --stage final --channels "$ok_chans" \
+    --out "$run_dir/reconciliation/postcheck" --strict | sed 's/^/  postcheck /' >&2 || post_rc=1
+
+  (cd "$run_dir" && diff -ru drafts final >reconciliation/editor.diff) || true
+
+  local prev; prev="$(previous_run "$slug_dir" "$run_id")"
+  if [[ -n "$prev" ]]; then
+    (cd "$slug_dir" && diff -ru "$prev/final" "$run_id/final" >"$run_id/reconciliation/vs-previous.diff") || true
+  fi
+
+  local outcome="ok"
+  (( failed > 0 )) && outcome="partial"
+  (( post_rc != 0 )) && outcome="${outcome/ok/needs-review}"
+  write_manifest "$run_dir" "$slug" "$run_id" "$brief" "$brief_sha" "$started" "$outcome" status "$prev"
+
+  ln -sfn "$run_id" "$slug_dir/latest"
+  [[ "${status[editor]}" == ok && $failed -eq 0 ]] && printf '%s\n' "$brief_sha" >"$slug_dir/.brief-sha"
+
+  summarize "$run_dir" "$prev"
+  (( failed > 0 )) && return 1
+  (( post_rc != 0 && STRICT == 1 )) && return 1
+  return 0
+}
+
+write_manifest() {
+  local run_dir="$1" slug="$2" run_id="$3" brief="$4" sha="$5" started="$6" outcome="$7"
+  local -n st="$8"
+  local prev="${9:-}" k status_args=()
+  for k in "${!st[@]}"; do status_args+=("$k=${st[$k]}"); done
+  "$PY" "$LEDGER" costs --run "$run_dir" >"$run_dir/logs/.costs.json"
+  M_ROOT="$ROOT" M_RUN="$run_dir" M_SLUG="$slug" M_ID="$run_id" M_BRIEF="$brief" \
+  M_SHA="$sha" M_STARTED="$started" M_OUTCOME="$outcome" M_PREV="$prev" \
+  M_CHANNELS="$CHANNELS" M_MODEL="${FANOUT_MODEL:-}" \
+  M_EDITOR_MODEL="${FANOUT_EDITOR_MODEL:-${FANOUT_MODEL:-}}" \
+  "$PY" - "${status_args[@]}" <<'PYEOF'
+import hashlib, json, os, pathlib, sys, time
+e = os.environ
+root, run = pathlib.Path(e["M_ROOT"]), pathlib.Path(e["M_RUN"])
+def h(p): return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+inputs = {"brief.md": e["M_SHA"], "voice.md": h(run / "voice.md")}
+if (run / "bank.md").exists():
+    inputs["bank.md"] = h(run / "bank.md")
+for p in sorted((root / "agents").glob("*.md")):
+    inputs["agents/" + p.name] = h(p)
+costs = json.loads((run / "logs/.costs.json").read_text())
+m = {
+    "slug": e["M_SLUG"], "run_id": e["M_ID"], "outcome": e["M_OUTCOME"],
+    "brief_source": e["M_BRIEF"], "previous_run": e["M_PREV"] or None,
+    "channels": e["M_CHANNELS"].split(","),
+    "model": e["M_MODEL"] or "default", "editor_model": e["M_EDITOR_MODEL"] or "default",
+    "wall_clock_s": int(time.time()) - int(e["M_STARTED"]),
+    "status": dict(sorted(a.split("=", 1) for a in sys.argv[1:])),
+    "inputs_sha256": inputs,
+    **costs,
+}
+(run / "manifest.json").write_text(json.dumps(m, indent=2) + "\n")
+PYEOF
+  rm -f "$run_dir/logs/.costs.json"
+}
+
+summarize() {
+  local run_dir="$1" prev="$2"
+  "$PY" - "$run_dir" "$prev" <<'PYEOF'
+import json, sys, pathlib
+run = pathlib.Path(sys.argv[1]); prev = sys.argv[2]
+m = json.loads((run / "manifest.json").read_text())
+pre = json.loads((run / "reconciliation/precheck.json").read_text()) if (run / "reconciliation/precheck.json").exists() else {}
+post = json.loads((run / "reconciliation/postcheck.json").read_text()) if (run / "reconciliation/postcheck.json").exists() else {}
+ed = run / "reconciliation/editor.diff"
+changed = sum(1 for l in ed.read_text().splitlines() if l.startswith("diff ")) if ed.exists() else 0
+print()
+print(f"run       {run}")
+print(f"outcome   {m['outcome']}  ({m['wall_clock_s']}s wall clock, ${m['total_cost_usd']:.2f})")
+print(f"agents    " + "  ".join(f"{k}:{v}" for k, v in sorted(m["status"].items())))
+if pre:  print(f"precheck  {pre['errors']} errors, {pre['warnings']} warnings")
+if post: print(f"postcheck {post['errors']} errors, {post['warnings']} warnings")
+print(f"editor    changed {changed} files  ->  reconciliation/report.md, reconciliation/editor.diff")
+if prev: print(f"previous  {prev}  ->  reconciliation/vs-previous.diff")
+if post and post["errors"]:
+    print("\nunresolved after reconciliation:")
+    for i in post["issues"]:
+        if i["severity"] == "error":
+            print(f"  - [{i['type']}] {i['channel']}: {i['message']}")
+PYEOF
+}
+
+# ---------------------------------------------------------------------------
+# Inbox, watch, diff, list
+
+cmd_inbox() {
+  shopt -s nullglob
+  local f r rc=0 any=0
+  for f in "$INBOX"/*.md; do
+    any=1
+    # Not `cmd_run || rc=1`: that context would switch off set -e inside the run.
+    set +e; cmd_run "$f"; r=$?; set -e
+    if (( r != 0 )); then rc=1; fi
+  done
+  [[ $any -eq 1 ]] || log "no briefs in $INBOX"
+  return $rc
+}
+
+cmd_watch() {
+  local every="${1:-10}"
+  log "watching $INBOX every ${every}s (ctrl-c to stop)"
+  while :; do
+    # Run each brief in a subshell so one failure doesn't stop the watcher.
+    set +e; ( cmd_inbox ); set -e
+    sleep "$every"
+  done
+}
+
+cmd_diff() {
+  local slug="${1:-}"; [[ -n "$slug" ]] || die "diff needs a slug"
+  local slug_dir="$RUNS_DIR/$slug" a="${2:-}" b="${3:-}"
+  [[ -d "$slug_dir" ]] || die "no runs for $slug"
+  if [[ -z "$b" ]]; then
+    b="${a:-$(readlink "$slug_dir/latest")}"
+    [[ -z "$a" || "$a" == "$b" ]] && a="$(previous_run "$slug_dir" "$b")"
+  fi
+  [[ -n "$a" ]] || die "$slug has only one run"
+  (cd "$slug_dir" && diff -ru "$a/final" "$b/final") || true
+}
+
+cmd_list() {
+  local slug="${1:-}" d
+  for d in "$RUNS_DIR"/${slug:-*}/*/; do
+    [[ -L "${d%/}" || ! -f "$d/manifest.json" ]] && continue
+    "$PY" - "$d" <<'PYEOF'
+import json, sys, pathlib
+d = pathlib.Path(sys.argv[1]); m = json.loads((d / "manifest.json").read_text())
+print(f"{m['slug']:<32} {m['run_id']}  {m['outcome']:<13} {m['wall_clock_s']:>5}s  ${m['total_cost_usd']:.2f}")
+PYEOF
+  done
+}
+
+main() {
+  local cmd="${1:-inbox}"; [[ $# -gt 0 ]] && shift
+  case "$cmd" in
+    run)   cmd_run "$@" ;;
+    inbox) cmd_inbox ;;
+    watch) cmd_watch "$@" ;;
+    diff)  cmd_diff "$@" ;;
+    list)  cmd_list "$@" ;;
+    help|-h|--help) sed -n '2,/^$/p' "$0" | sed 's/^# \{0,1\}//' ;;
+    *.md)  cmd_run "$cmd" "$@" ;;
+    *) die "unknown command '$cmd' (try ./fanout help)" ;;
+  esac
+}
+
+main "$@"
