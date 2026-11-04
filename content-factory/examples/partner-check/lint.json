@@ -1,0 +1,56 @@
+[
+  {
+    "rule": "fingerprint",
+    "severity": "error",
+    "message": "machine-sounding phrase 'robust'",
+    "where": "robust"
+  },
+  {
+    "rule": "untagged-superlative",
+    "severity": "warning",
+    "message": "'Best' with no claim behind it",
+    "where": "# The Best Heroku Alternatives for 2026"
+  },
+  {
+    "rule": "untagged-superlative",
+    "severity": "warning",
+    "message": "'best' with no claim behind it",
+    "where": "Render is the best Heroku alternative for most teams."
+  },
+  {
+    "rule": "answer-first",
+    "severity": "error",
+    "message": "opens with preamble instead of the answer",
+    "where": "When it comes to replacing Heroku, developers have more choices than ever, and picking one can feel "
+  },
+  {
+    "rule": "question-headings",
+    "severity": "warning",
+    "message": "fewer than a third of H2s are phrased as the question a developer would ask",
+    "where": ""
+  },
+  {
+    "rule": "sentence-case",
+    "severity": "warning",
+    "message": "heading isn't sentence case",
+    "where": "The Best Heroku Alternatives for 2026"
+  },
+  {
+    "rule": "concede",
+    "severity": "error",
+    "message": "comparison has no section on when the other option wins. One-sided comparisons read as ads, and answer engines treat them that way.",
+    "where": ""
+  },
+  {
+    "rule": "verified-date",
+    "severity": "warning",
+    "message": "no last_verified date in front matter",
+    "where": ""
+  },
+  {
+    "rule": "targets",
+    "severity": "warning",
+    "message": "front matter doesn't list target_questions, so the survey can't measure this page",
+    "where": ""
+  }
+]

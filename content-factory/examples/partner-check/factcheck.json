@@ -1,0 +1,69 @@
+{
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "Render offers a free tier that includes background workers.",
+      "quote": "Render offers a robust free tier that includes background workers, so you can run a whole stack for nothing.",
+      "source": "free#intro",
+      "alt_sources": [
+        "free#unsupported",
+        "blueprint-spec#top-level"
+      ],
+      "extracted": true,
+      "checks": [],
+      "verdict": "contradicted",
+      "tier": "SIGNAL",
+      "by": "registry-pattern",
+      "reason": "matches a known-wrong pattern for F-free-no-workers: Background workers and cron jobs aren't available on the free instance type.",
+      "evidence": "Render offers free instance types for web services, Render Postgres, and Render Key Value, for hobby projects and testing.",
+      "evidence_sha": "afcc634139e7"
+    },
+    {
+      "id": "C2",
+      "statement": "Render supports Docker deploys from a Dockerfile or a prebuilt image.",
+      "quote": "Render supports Docker deploys from a Dockerfile or a prebuilt image.",
+      "source": "docker#overview",
+      "alt_sources": [
+        "deploys#zero-downtime",
+        "disks#overview"
+      ],
+      "extracted": true,
+      "checks": [],
+      "evidence": "Render can build an image from a Dockerfile in your repository, or pull a prebuilt image from a container registry such as Docker Hub or GitHub Container Registry.\n\n(deploys#zero-downtime) By default, Render keeps the old instance serving traffic until the new one is healthy, so web services deploy without downtime. Services with an attached persistent disk are the exception: Render stops the old instance before starting the new one, so there is a short gap.\n\n(disks#overview) A persistent disk keeps files across deploys and restarts. Disks are available on paid instance types.",
+      "evidence_sha": "438c91946630",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The docker#overview excerpt states Render can build an image from a Dockerfile in your repository or pull a prebuilt image from a container registry."
+    },
+    {
+      "id": "C3",
+      "statement": "Render gives every pull request a preview environment with its own copy of your databases.",
+      "quote": "Render gives every pull request a preview environment with its own copy of your databases.",
+      "source": "preview-environments#overview",
+      "alt_sources": [
+        "blueprint-spec#top-level",
+        "docker#overview"
+      ],
+      "extracted": true,
+      "checks": [],
+      "evidence": "Preview environments create a full copy of the services and databases defined in your Blueprint for each pull request, and remove it when the pull request closes.\n\n(blueprint-spec#top-level) The top-level `services` list defines web services, private services, background workers, cron jobs, and Key Value instances. Each service needs a `type` and a `name`. Render Postgres databases are defined in the top-level `databases` list. Environment groups are defined under `envVarGroups`.\n\n(docker#overview) Render can build an image from a Dockerfile in your repository, or pull a prebuilt image from a container registry such as Docker Hub or GitHub Container Registry.",
+      "evidence_sha": "4b804ed8f558",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The preview-environments overview says it creates a full copy of the services and databases for each pull request, though it limits this to resources defined in your Blueprint, a condition the claim leaves out."
+    }
+  ],
+  "extracted_ledger": true,
+  "dangling_tags": [],
+  "tks": [],
+  "untracked": [],
+  "counts": {
+    "VERIFIED": 0,
+    "CORROBORATED": 2,
+    "SIGNAL": 1
+  },
+  "contradicted": 1,
+  "auto_verified_rate": 0.0
+}

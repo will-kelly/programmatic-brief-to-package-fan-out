@@ -1,0 +1,973 @@
+{
+  "items": [
+    {
+      "kind": "DISPUTED",
+      "cluster": "render-facts",
+      "format": "docs",
+      "questions": [
+        "q-render-cold-start",
+        "q-render-free-tier",
+        "q-render-port"
+      ],
+      "evidence": [
+        "`q-render-cold-start`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Neon (3/3), Supabase (3/3); model judge flagged \"Even on paid plans, slow app startup delays the first response after a deploy\" against F-zero-downtime",
+        "`q-render-free-tier`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Neon (1/3), Supabase (1/3); model judge flagged \"Free web services have no zero-downtime guarantees\" against F-zero-downtime",
+        "`q-render-port`: mentioned in 100% of 3 answers (95% CI 44%–100%); model judge flagged \"If you don't use PORT, Render scans for whatever port your app opens\" against F-port-default"
+      ],
+      "demand": 9,
+      "score": 18.0,
+      "severity": 2,
+      "effort": 1.0,
+      "fix": "A reviewer reads the flagged answers against the live docs. If the answer is right, the registry has a gap: add the fact. If it's wrong, it becomes a WRONG item.",
+      "why": "DISPUTED on 3 question(s) in render-facts, combined demand 9; severity 2 x demand / effort 1.0 = 18.0.",
+      "title": "Confirm or add to registry: What are the limits of Render's free tier"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "ai-agents",
+      "format": "use-case",
+      "questions": [
+        "q-agent-long-running",
+        "q-llm-queue",
+        "q-mcp-server-host",
+        "q-rag-app"
+      ],
+      "evidence": [
+        "`q-agent-long-running`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: AWS (3/3), Vercel (3/3), Netlify (3/3); picked first in 0%, average rank 9.33; tentative on 3 samples: raise k for this question next survey",
+        "`q-llm-queue`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Temporal (3/3), Inngest (3/3), Trigger.dev (3/3); picked first in 0%, average rank 5.67; tentative on 3 samples: raise k for this question next survey",
+        "`q-mcp-server-host`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Cloudflare (3/3), Vercel (3/3), Google Cloud Run (3/3); picked first in 0%, average rank 6.67; tentative on 3 samples: raise k for this question next survey",
+        "`q-rag-app`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Google Cloud Run (3/3); picked first in 33%, average rank 1.33; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 17,
+      "score": 17.0,
+      "severity": 2,
+      "effort": 2.0,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 4 question(s) in ai-agents, combined demand 17; severity 2 x demand / effort 2.0 = 17.0.",
+      "title": "Where should I host an AI agent that runs long tasks, sometimes for 20 minutes or more"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "js-stacks",
+      "format": "stack-guide",
+      "questions": [
+        "q-bun-host",
+        "q-express-websockets",
+        "q-nest-docker",
+        "q-nextjs-backend"
+      ],
+      "evidence": [
+        "`q-bun-host`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Vercel (3/3); picked first in 0%, average rank 2.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-express-websockets`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3); picked first in 33%, average rank 1.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-nest-docker`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Google Cloud Run (3/3), Railway (3/3), Fly.io (3/3); picked first in 0%, average rank 3.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-nextjs-backend`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Vercel (3/3), Railway (3/3), Fly.io (3/3); picked first in 0%, average rank 4.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 12,
+      "score": 16.0,
+      "severity": 2,
+      "effort": 1.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 4 question(s) in js-stacks, combined demand 12; severity 2 x demand / effort 1.5 = 16.0.",
+      "title": "Where should I host a Next.js app that has a separate Node backend and a database"
+    },
+    {
+      "kind": "ABSENT",
+      "cluster": "ai-agents",
+      "format": "use-case",
+      "questions": [
+        "q-agent-sandbox",
+        "q-durable-workflows"
+      ],
+      "evidence": [
+        "`q-agent-sandbox`: mentioned in 0% of 3 answers (95% CI 0%–56%); named instead: E2B (3/3), Modal (3/3), Cloudflare (3/3); tentative on 3 samples: raise k for this question next survey",
+        "`q-durable-workflows`: mentioned in 0% of 3 answers (95% CI 0%–56%); named instead: Inngest (3/3), Vercel (3/3), Cloudflare (3/3); tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 6,
+      "score": 12.0,
+      "severity": 4,
+      "effort": 2.0,
+      "fix": "Write the page that answers this question directly, answer-first, with a concede section.",
+      "why": "ABSENT on 2 question(s) in ai-agents, combined demand 6; severity 4 x demand / effort 2.0 = 12.0.",
+      "title": "Where can I run code that an AI agent generates in an isolated sandbox"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "platform-ops",
+      "format": "use-case",
+      "questions": [
+        "q-autoscale",
+        "q-cron-host",
+        "q-docker-compose",
+        "q-private-network"
+      ],
+      "evidence": [
+        "`q-autoscale`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: AWS (3/3), Azure (3/3), Google Cloud Run (3/3); picked first in 0%, average rank 4.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-cron-host`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: AWS (3/3), Google Cloud Run (3/3), Azure (3/3); picked first in 0%, average rank 7.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-docker-compose`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: DigitalOcean App Platform (3/3), AWS (3/3), Coolify (3/3); picked first in 0%, average rank 4.33; tentative on 3 samples: raise k for this question next survey",
+        "`q-private-network`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3); picked first in 0%, average rank 1.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 11,
+      "score": 11.0,
+      "severity": 2,
+      "effort": 2.0,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 4 question(s) in platform-ops, combined demand 11; severity 2 x demand / effort 2.0 = 11.0.",
+      "title": "Which managed platforms autoscale web services based on CPU without Kubernetes"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "python-stacks",
+      "format": "stack-guide",
+      "questions": [
+        "q-django-postgres",
+        "q-flask-cheap"
+      ],
+      "evidence": [
+        "`q-django-postgres`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3); picked first in 33%, average rank 1.67; tentative on 3 samples: raise k for this question next survey",
+        "`q-flask-cheap`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Google Cloud Run (3/3), AWS (3/3), DigitalOcean App Platform (3/3); picked first in 0%, average rank 4.67; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 8,
+      "score": 10.7,
+      "severity": 2,
+      "effort": 1.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 2 question(s) in python-stacks, combined demand 8; severity 2 x demand / effort 1.5 = 10.7.",
+      "title": "What's the easiest way to deploy a Django app with Postgres"
+    },
+    {
+      "kind": "ABSENT",
+      "cluster": "platform-ops",
+      "format": "docs",
+      "questions": [
+        "q-monorepo"
+      ],
+      "evidence": [
+        "`q-monorepo`: mentioned in 0% of 3 answers (95% CI 0%–56%); no platform named at all: answers treat this as a tooling question, so the page has to make the platform part of the answer; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 2,
+      "score": 8.0,
+      "severity": 4,
+      "effort": 1.0,
+      "fix": "Write the page that answers this question directly, answer-first, with a concede section.",
+      "why": "ABSENT on 1 question(s) in platform-ops, combined demand 2; severity 4 x demand / effort 1.0 = 8.0.",
+      "title": "How do I deploy several services from one monorepo and only rebuild what changed"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "comparisons",
+      "format": "comparison",
+      "questions": [
+        "q-heroku-alt",
+        "q-paas-vs-aws"
+      ],
+      "evidence": [
+        "`q-heroku-alt`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Heroku (3/3), Railway (3/3), Fly.io (3/3); picked first in 0%, average rank 2.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-paas-vs-aws`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Heroku (3/3), Railway (3/3), Fly.io (3/3); picked first in 0%, average rank 2.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 9,
+      "score": 7.2,
+      "severity": 2,
+      "effort": 2.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 2 question(s) in comparisons, combined demand 9; severity 2 x demand / effort 2.5 = 7.2.",
+      "title": "What's the best Heroku alternative in 2026"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "other-stacks",
+      "format": "stack-guide",
+      "questions": [
+        "q-go-api",
+        "q-rails-sidekiq"
+      ],
+      "evidence": [
+        "`q-go-api`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Fly.io (3/3), Google Cloud Run (3/3); picked first in 33%, average rank 1.0; tentative on 3 samples: raise k for this question next survey",
+        "`q-rails-sidekiq`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Heroku (3/3), Fly.io (3/3), DigitalOcean App Platform (3/3); picked first in 33%, average rank 1.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 5,
+      "score": 6.7,
+      "severity": 2,
+      "effort": 1.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 2 question(s) in other-stacks, combined demand 5; severity 2 x demand / effort 1.5 = 6.7.",
+      "title": "Best Heroku-like place to run a Rails app with Sidekiq"
+    },
+    {
+      "kind": "OUT-CITED",
+      "cluster": "other-stacks",
+      "format": "stack-guide",
+      "questions": [
+        "q-laravel-queue"
+      ],
+      "evidence": [
+        "`q-laravel-queue`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: AWS (3/3), Railway (3/3), Fly.io (3/3); cited instead: third-party:cloud.laravel.com (1), third-party:vapor.laravel.com (1); tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 2,
+      "score": 4.0,
+      "severity": 3,
+      "effort": 1.5,
+      "fix": "Publish the page that third parties are being cited for; match their depth on this exact question.",
+      "why": "OUT-CITED on 1 question(s) in other-stacks, combined demand 2; severity 3 x demand / effort 1.5 = 4.0.",
+      "title": "How do I deploy a Laravel app with queue workers without running my own VPS"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "platform-ops",
+      "format": "docs",
+      "questions": [
+        "q-zero-downtime"
+      ],
+      "evidence": [
+        "`q-zero-downtime`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Vercel (3/3), Netlify (3/3), Railway (3/3); picked first in 33%, average rank 1.67; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 2,
+      "score": 4.0,
+      "severity": 2,
+      "effort": 1.0,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 1 question(s) in platform-ops, combined demand 2; severity 2 x demand / effort 1.0 = 4.0.",
+      "title": "How do I get zero-downtime deploys for a web app without writing infrastructure code"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "ai-agents",
+      "format": "comparison",
+      "questions": [
+        "q-vercel-timeout"
+      ],
+      "evidence": [
+        "`q-vercel-timeout`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Vercel (3/3), Inngest (3/3), Trigger.dev (3/3); picked first in 0%, average rank 5.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 4,
+      "score": 3.2,
+      "severity": 2,
+      "effort": 2.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 1 question(s) in ai-agents, combined demand 4; severity 2 x demand / effort 2.5 = 3.2.",
+      "title": "My Vercel function keeps timing out on long LLM calls. Where should I move the backend"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "python-stacks",
+      "format": "use-case",
+      "questions": [
+        "q-celery-host"
+      ],
+      "evidence": [
+        "`q-celery-host`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Railway (3/3), Heroku (3/3), Fly.io (3/3); picked first in 0%, average rank 2.33; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 3,
+      "score": 3.0,
+      "severity": 2,
+      "effort": 2.0,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 1 question(s) in python-stacks, combined demand 3; severity 2 x demand / effort 2.0 = 3.0.",
+      "title": "How do I host Celery workers and Redis without managing servers"
+    },
+    {
+      "kind": "BURIED",
+      "cluster": "platform-ops",
+      "format": "stack-guide",
+      "questions": [
+        "q-static-plus-api"
+      ],
+      "evidence": [
+        "`q-static-plus-api`: mentioned in 100% of 3 answers (95% CI 44%–100%); named instead: Vercel (3/3), Netlify (3/3), Cloudflare (3/3); picked first in 0%, average rank 5.0; tentative on 3 samples: raise k for this question next survey"
+      ],
+      "demand": 2,
+      "score": 2.7,
+      "severity": 2,
+      "effort": 1.5,
+      "fix": "Make the existing coverage more specific to this stack or use case so Render is the concrete pick.",
+      "why": "BURIED on 1 question(s) in platform-ops, combined demand 2; severity 2 x demand / effort 1.5 = 2.7.",
+      "title": "Where can I host a React static site and its API together under one account"
+    }
+  ],
+  "diagnosis": [
+    {
+      "question_id": "q-agent-long-running",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: AWS (3/3), Vercel (3/3), Netlify (3/3)",
+        "picked first in 0%, average rank 9.33",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-agent-sandbox",
+      "kind": "ABSENT",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 0% of 3 answers (95% CI 0%–56%)",
+        "named instead: E2B (3/3), Modal (3/3), Cloudflare (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-durable-workflows",
+      "kind": "ABSENT",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 0% of 3 answers (95% CI 0%–56%)",
+        "named instead: Inngest (3/3), Vercel (3/3), Cloudflare (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-llm-queue",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Temporal (3/3), Inngest (3/3), Trigger.dev (3/3)",
+        "picked first in 0%, average rank 5.67",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-mcp-server-host",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Cloudflare (3/3), Vercel (3/3), Google Cloud Run (3/3)",
+        "picked first in 0%, average rank 6.67",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-rag-app",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Google Cloud Run (3/3)",
+        "picked first in 33%, average rank 1.33",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-vercel-timeout",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Vercel (3/3), Inngest (3/3), Trigger.dev (3/3)",
+        "picked first in 0%, average rank 5.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-heroku-alt",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Heroku (3/3), Railway (3/3), Fly.io (3/3)",
+        "picked first in 0%, average rank 2.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-paas-vs-aws",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Heroku (3/3), Railway (3/3), Fly.io (3/3)",
+        "picked first in 0%, average rank 2.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-vs-fly",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Fly.io (3/3), Railway (1/3), Google Cloud Run (1/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-vs-railway",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Neon (3/3), Supabase (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-bun-host",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Vercel (3/3)",
+        "picked first in 0%, average rank 2.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-express-websockets",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3)",
+        "picked first in 33%, average rank 1.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-nest-docker",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Google Cloud Run (3/3), Railway (3/3), Fly.io (3/3)",
+        "picked first in 0%, average rank 3.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-nextjs-backend",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Vercel (3/3), Railway (3/3), Fly.io (3/3)",
+        "picked first in 0%, average rank 4.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-go-api",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Google Cloud Run (3/3)",
+        "picked first in 33%, average rank 1.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-laravel-queue",
+      "kind": "OUT-CITED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: AWS (3/3), Railway (3/3), Fly.io (3/3)",
+        "cited instead: third-party:cloud.laravel.com (1), third-party:vapor.laravel.com (1)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {
+        "third-party:cloud.laravel.com": 1,
+        "third-party:vapor.laravel.com": 1
+      }
+    },
+    {
+      "question_id": "q-rails-sidekiq",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Heroku (3/3), Fly.io (3/3), DigitalOcean App Platform (3/3)",
+        "picked first in 33%, average rank 1.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-autoscale",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: AWS (3/3), Azure (3/3), Google Cloud Run (3/3)",
+        "picked first in 0%, average rank 4.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-cron-host",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: AWS (3/3), Google Cloud Run (3/3), Azure (3/3)",
+        "picked first in 0%, average rank 7.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-docker-compose",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: DigitalOcean App Platform (3/3), AWS (3/3), Coolify (3/3)",
+        "picked first in 0%, average rank 4.33",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-monorepo",
+      "kind": "ABSENT",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 0% of 3 answers (95% CI 0%–56%)",
+        "no platform named at all: answers treat this as a tooling question, so the page has to make the platform part of the answer",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-preview-envs",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Heroku (3/3), Railway (3/3), Northflank (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-private-network",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3)",
+        "picked first in 0%, average rank 1.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-static-plus-api",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Vercel (3/3), Netlify (3/3), Cloudflare (3/3)",
+        "picked first in 0%, average rank 5.0",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-zero-downtime",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Vercel (3/3), Netlify (3/3), Railway (3/3)",
+        "picked first in 33%, average rank 1.67",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-celery-host",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Heroku (3/3), Fly.io (3/3)",
+        "picked first in 0%, average rank 2.33",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-django-postgres",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3)",
+        "picked first in 33%, average rank 1.67",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-fastapi-worker",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Railway (3/3), Fly.io (3/3), Heroku (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-flask-cheap",
+      "kind": "BURIED",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Google Cloud Run (3/3), AWS (3/3), DigitalOcean App Platform (3/3)",
+        "picked first in 0%, average rank 4.67",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-cold-start",
+      "kind": "DISPUTED",
+      "confidence": "firm",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Neon (3/3), Supabase (3/3)",
+        "model judge flagged \"Even on paid plans, slow app startup delays the first response after a deploy\" against F-zero-downtime"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-disks",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Cloudflare (3/3)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-free-tier",
+      "kind": "DISPUTED",
+      "confidence": "firm",
+      "pages": [
+        "what-render-s-free-tier-covers"
+      ],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "named instead: Neon (1/3), Supabase (1/3)",
+        "model judge flagged \"Free web services have no zero-downtime guarantees\" against F-zero-downtime"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {
+        "Render": 3
+      }
+    },
+    {
+      "question_id": "q-render-port",
+      "kind": "DISPUTED",
+      "confidence": "firm",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "model judge flagged \"If you don't use PORT, Render scans for whatever port your app opens\" against F-port-default"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-postgres-free",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {}
+    },
+    {
+      "question_id": "q-render-yaml",
+      "kind": "HOLDING",
+      "confidence": "tentative",
+      "pages": [],
+      "evidence": [
+        "mentioned in 100% of 3 answers (95% CI 44%–100%)",
+        "tentative on 3 samples: raise k for this question next survey"
+      ],
+      "agent_hits": {
+        "index": 0,
+        "live-fetch": 0,
+        "training": 0,
+        "agent": 0
+      },
+      "owners": {
+        "Render": 1
+      }
+    }
+  ],
+  "counts": {
+    "BURIED": 22,
+    "ABSENT": 3,
+    "HOLDING": 7,
+    "OUT-CITED": 1,
+    "DISPUTED": 3
+  },
+  "meta": "From survey 20261104T214254Z (108 answers, claude)."
+}

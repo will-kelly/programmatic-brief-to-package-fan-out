@@ -1,0 +1,128 @@
+# The fact registry: short, checkable statements about Render that content
+# and LLM answers get measured against.
+#
+# Every fact names the docs section it depends on (`source`, a section ID in
+# the docs snapshot). That link does two jobs. The fact-checker uses the
+# section text as evidence, and the refresh job flags the fact, and every
+# published claim that cites it, when that section changes.
+#
+# `status`:
+#   seed      written by hand, not yet matched to a live docs section. The
+#             checker treats a claim backed only by a seed fact as
+#             CORROBORATED, never VERIFIED.
+#   verified  a human matched it to the live docs on `verified_on`.
+#
+# The seed values below were written without access to the live docs. Run
+# `cf facts verify` against a real snapshot before trusting any of them.
+
+[[fact]]
+id = "F-free-spindown"
+topic = "free-tier"
+statement = "Free web services spin down after 15 minutes without inbound traffic, and the next request waits while the service spins back up."
+source = "free#spin-down"
+status = "seed"
+wrong_patterns = ["free (tier|plan|instances?) (never|doesn't|does not) (sleep|spin down)", "spin(s)? down after (5|10|30|60) minutes"]
+
+[[fact]]
+id = "F-free-no-workers"
+topic = "free-tier"
+statement = "Background workers and cron jobs aren't available on the free instance type."
+source = "free#unsupported"
+status = "seed"
+wrong_patterns = ["free (tier|plan|instance type)[^.]{0,30}\\b(includes|supports|offers|with|runs?) (background )?workers", "workers? (on|in) the free (tier|plan|instance type)", "free cron jobs?"]
+
+[[fact]]
+id = "F-free-no-disk"
+topic = "free-tier"
+statement = "Free instances can't attach a persistent disk, so files written at runtime are lost on redeploy or spin-down."
+source = "free#filesystem"
+status = "seed"
+wrong_patterns = ["free (tier|plan|instances?) (include|includes|support|supports) (a )?persistent disk"]
+
+[[fact]]
+id = "F-free-postgres-expiry"
+topic = "free-tier"
+statement = "Free Render Postgres databases expire 30 days after creation unless upgraded."
+source = "free#postgres"
+status = "seed"
+wrong_patterns = ["free postgres (never expires|is permanent|has no expiration)", "expires? after 90 days"]
+
+[[fact]]
+id = "F-port-default"
+topic = "web-services"
+statement = "A web service must bind to 0.0.0.0 on the port in the PORT environment variable, which defaults to 10000."
+source = "web-services#port-binding"
+status = "seed"
+wrong_patterns = ["(default|defaults to) port (80|3000|5000|8000|8080)\\b on render", "render (sets|uses) port (80|3000|5000|8080) by default"]
+
+[[fact]]
+id = "F-service-types"
+topic = "service-types"
+statement = "Render service types include web services, static sites, private services, background workers, and cron jobs."
+source = "service-types#overview"
+status = "seed"
+wrong_patterns = ["render (doesn't|does not|can't|cannot) (run|support|host) (background workers|cron jobs|private services)"]
+
+[[fact]]
+id = "F-docker"
+topic = "deploys"
+statement = "Render can build from a Dockerfile in your repo or deploy a prebuilt image from a container registry."
+source = "docker#overview"
+status = "seed"
+wrong_patterns = ["render (doesn't|does not|can't|cannot) (run|support|deploy) docker"]
+
+[[fact]]
+id = "F-blueprint-file"
+topic = "blueprints"
+statement = "A Blueprint is defined in a render.yaml file, by default at the root of the repository."
+source = "blueprint-spec#file-location"
+status = "seed"
+wrong_patterns = ["render\\.json", "render\\.toml", "\\.render/config\\.ya?ml"]
+
+[[fact]]
+id = "F-blueprint-keys"
+topic = "blueprints"
+statement = "In render.yaml, services go under `services`, each with `type` and `name`; Postgres databases go under `databases`."
+source = "blueprint-spec#top-level"
+status = "seed"
+wrong_patterns = []
+
+[[fact]]
+id = "F-private-network"
+topic = "networking"
+statement = "Services in the same region and workspace can reach each other over a private network by internal hostname."
+source = "private-network#overview"
+status = "seed"
+wrong_patterns = ["render (has no|doesn't have|does not have|lacks) (a )?private network"]
+
+[[fact]]
+id = "F-zero-downtime"
+topic = "deploys"
+statement = "Web services get zero-downtime deploys by default, unless the service has a persistent disk attached."
+source = "deploys#zero-downtime"
+status = "seed"
+wrong_patterns = []
+
+[[fact]]
+id = "F-disk-single-instance"
+topic = "disks"
+statement = "A service with a persistent disk can't scale to more than one instance."
+source = "disks#limitations"
+status = "seed"
+wrong_patterns = ["(scale|run) (multiple|several) instances with (a|the same) (persistent )?disk"]
+
+[[fact]]
+id = "F-key-value"
+topic = "datastores"
+statement = "Render Key Value is a managed Redis-compatible store, previously called Render Redis."
+source = "key-value#overview"
+status = "seed"
+wrong_patterns = []
+
+[[fact]]
+id = "F-previews"
+topic = "previews"
+statement = "Preview environments create a copy of the services and databases in a Blueprint for each pull request."
+source = "preview-environments#overview"
+status = "seed"
+wrong_patterns = ["render (doesn't|does not) (have|offer|support) preview environments"]

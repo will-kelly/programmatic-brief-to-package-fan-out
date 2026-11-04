@@ -1,0 +1,287 @@
+{
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "Render runs web services, static sites, private services, background workers, and cron jobs.",
+      "source": "service-types#overview",
+      "checks": [],
+      "evidence": "Render runs web services, static sites, private services, background workers, and cron jobs. Web services and static sites are reachable from the public internet. Private services are reachable only over your private network. Background workers run continuously without receiving traffic, and cron jobs run a command on a schedule and then exit.",
+      "evidence_sha": "a6e96d37664a",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that Render runs web services, static sites, private services, background workers, and cron jobs.",
+      "notes": [
+        "in the ledger but never tagged in the copy"
+      ]
+    },
+    {
+      "id": "C2",
+      "statement": "Render background workers run continuously without receiving traffic.",
+      "source": "service-types#overview",
+      "checks": [],
+      "evidence": "Render runs web services, static sites, private services, background workers, and cron jobs. Web services and static sites are reachable from the public internet. Private services are reachable only over your private network. Background workers run continuously without receiving traffic, and cron jobs run a command on a schedule and then exit.",
+      "evidence_sha": "a6e96d37664a",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that background workers run continuously without receiving traffic."
+    },
+    {
+      "id": "C3",
+      "statement": "A free Render web service spins down after 15 minutes without inbound traffic.",
+      "source": "free#spin-down",
+      "checks": [],
+      "evidence": "A free web service spins down after 15 minutes without inbound traffic. When it receives a request again, Render spins it back up, and the request waits until the service is running. This can take up to a minute.",
+      "evidence_sha": "804def7c070f",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that a free web service spins down after 15 minutes without inbound traffic."
+    },
+    {
+      "id": "C4",
+      "statement": "When a spun-down free web service gets a request, the request waits until Render spins the service back up, which can take up to a minute.",
+      "source": "free#spin-down",
+      "checks": [],
+      "evidence": "A free web service spins down after 15 minutes without inbound traffic. When it receives a request again, Render spins it back up, and the request waits until the service is running. This can take up to a minute.",
+      "evidence_sha": "804def7c070f",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that when a spun-down free web service receives a request, Render spins it back up and the request waits until the service is running, which can take up to a minute."
+    },
+    {
+      "id": "C5",
+      "statement": "Render Key Value is a managed, Redis-compatible key-value store, previously called Render Redis, for caches, job queues, and session storage.",
+      "source": "key-value#overview",
+      "checks": [],
+      "evidence": "Render Key Value is a managed, Redis-compatible key-value store. It was previously called Render Redis. Use it for caches, job queues, and session storage.",
+      "evidence_sha": "3d33ba73c490",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that Render Key Value is a managed, Redis-compatible key-value store, previously called Render Redis, for caches, job queues, and session storage."
+    },
+    {
+      "id": "C6",
+      "statement": "A Render web service must bind to host 0.0.0.0 on the port in the PORT environment variable, which defaults to 10000.",
+      "source": "web-services#port-binding",
+      "checks": [],
+      "evidence": "Your app must bind to host 0.0.0.0 on the port given in the PORT environment variable. The default value of PORT is 10000.",
+      "evidence_sha": "3a0462e7a675",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that apps must bind to host 0.0.0.0 on the port in the PORT environment variable and that PORT defaults to 10000."
+    },
+    {
+      "id": "C7",
+      "statement": "A Render web service runs your app and gives it a public onrender.com URL.",
+      "source": "web-services#intro",
+      "checks": [],
+      "evidence": "A web service runs your app and gives it a public onrender.com URL.",
+      "evidence_sha": "486abf523aec",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states almost word-for-word that a web service runs your app and gives it a public onrender.com URL."
+    },
+    {
+      "id": "C8",
+      "statement": "A Render service with an attached disk can't scale to more than one instance and doesn't get zero-downtime deploys.",
+      "source": "disks#limitations",
+      "checks": [],
+      "evidence": "A service with an attached disk can't scale to more than one instance, and it doesn't get zero-downtime deploys.",
+      "evidence_sha": "982feeac3dff",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence says a service with an attached disk can't scale beyond one instance and doesn't get zero-downtime deploys, which matches the claim exactly."
+    },
+    {
+      "id": "C9",
+      "statement": "By default, Render keeps the old instance serving traffic until the new one is healthy, so web services deploy without downtime.",
+      "source": "deploys#zero-downtime",
+      "checks": [],
+      "evidence": "By default, Render keeps the old instance serving traffic until the new one is healthy, so web services deploy without downtime. Services with an attached persistent disk are the exception: Render stops the old instance before starting the new one, so there is a short gap.",
+      "evidence_sha": "95f82b11e84d",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states this nearly word for word, though it adds that services with an attached persistent disk are an exception and have a short gap during deploys."
+    },
+    {
+      "id": "C10",
+      "statement": "For services with an attached persistent disk, Render stops the old instance before starting the new one, so there is a short gap.",
+      "source": "deploys#zero-downtime",
+      "checks": [],
+      "evidence": "By default, Render keeps the old instance serving traffic until the new one is healthy, so web services deploy without downtime. Services with an attached persistent disk are the exception: Render stops the old instance before starting the new one, so there is a short gap.",
+      "evidence_sha": "95f82b11e84d",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that services with an attached persistent disk are the exception, where Render stops the old instance before starting the new one, creating a short gap."
+    },
+    {
+      "id": "C11",
+      "statement": "A free Render Postgres database expires 30 days after it's created unless you upgrade it to a paid instance type.",
+      "source": "free#postgres",
+      "checks": [],
+      "evidence": "A free Render Postgres database expires 30 days after it's created. Upgrade it to a paid instance type before then to keep your data.",
+      "evidence_sha": "cb78d5fd1efe",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states free Render Postgres databases expire 30 days after creation and that upgrading to a paid instance type before then keeps the data."
+    },
+    {
+      "id": "C12",
+      "statement": "Background workers, private services, and cron jobs aren't available on Render's free instance type, and free web services can't scale beyond one instance.",
+      "source": "free#unsupported",
+      "checks": [],
+      "evidence": "Background workers, private services, and cron jobs aren't available on the free instance type. Free web services can't scale beyond one instance.",
+      "evidence_sha": "d64e9ef40961",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence says background workers, private services, and cron jobs aren't available on the free instance type and that free web services can't scale beyond one instance, which matches the claim exactly."
+    },
+    {
+      "id": "C13",
+      "statement": "Render offers free instance types for web services, Render Postgres, and Render Key Value.",
+      "source": "free#intro",
+      "checks": [],
+      "evidence": "Render offers free instance types for web services, Render Postgres, and Render Key Value, for hobby projects and testing.",
+      "evidence_sha": "afcc634139e7",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that Render offers free instance types for web services, Render Postgres, and Render Key Value."
+    },
+    {
+      "id": "C14",
+      "statement": "During a deploy, Render waits for a web service's health check path to return a successful response before routing traffic to the new instance.",
+      "source": "web-services#health-checks",
+      "checks": [],
+      "evidence": "You can set a health check path. During a deploy, Render waits for this path to return a successful response before routing traffic to the new instance.",
+      "evidence_sha": "f39cd3ac04c2",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence says that during a deploy Render waits for the configured health check path to return a successful response before routing traffic to the new instance, which matches the claim."
+    },
+    {
+      "id": "C15",
+      "statement": "A Render Blueprint is defined in a file named render.yaml, which Render looks for at the repository root by default.",
+      "source": "blueprint-spec#file-location",
+      "checks": [],
+      "evidence": "A Blueprint is defined in a file named render.yaml. By default, Render looks for it at the root of your repository.",
+      "evidence_sha": "bae994e896bd",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that a Blueprint is defined in a file named render.yaml and that Render looks for it at the repository root by default."
+    },
+    {
+      "id": "C16",
+      "statement": "In a Blueprint, the top-level services list defines web services, private services, background workers, cron jobs, and Key Value instances, each with a type and a name, and Render Postgres databases go in the top-level databases list.",
+      "source": "blueprint-spec#top-level",
+      "checks": [],
+      "evidence": "The top-level `services` list defines web services, private services, background workers, cron jobs, and Key Value instances. Each service needs a `type` and a `name`. Render Postgres databases are defined in the top-level `databases` list. Environment groups are defined under `envVarGroups`.",
+      "evidence_sha": "8e64786750b3",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that the top-level services list defines web services, private services, background workers, cron jobs, and Key Value instances, each needing a type and a name, and that Render Postgres databases are defined in the top-level databases list."
+    },
+    {
+      "id": "C17",
+      "statement": "Common Blueprint service fields include runtime, plan, region, buildCommand, startCommand, envVars, autoDeploy, and healthCheckPath, and a cron job also needs a schedule.",
+      "source": "blueprint-spec#service-fields",
+      "checks": [],
+      "evidence": "Common service fields include `runtime`, `plan`, `region`, `buildCommand`, `startCommand`, `envVars`, `autoDeploy`, and `healthCheckPath`. A cron job also needs a `schedule`.",
+      "evidence_sha": "0c0c23aca18d",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence lists exactly the same common service fields (runtime, plan, region, buildCommand, startCommand, envVars, autoDeploy, healthCheckPath) and states that a cron job also needs a schedule."
+    },
+    {
+      "id": "C18",
+      "statement": "A Render persistent disk keeps files across deploys and restarts and is available on paid instance types.",
+      "source": "disks#overview",
+      "checks": [],
+      "evidence": "A persistent disk keeps files across deploys and restarts. Disks are available on paid instance types.",
+      "evidence_sha": "ce0afedca38f",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states that a persistent disk keeps files across deploys and restarts and that disks are available on paid instance types, matching the claim exactly."
+    },
+    {
+      "id": "C19",
+      "statement": "Free Render instances can't attach a persistent disk, and files a free service writes at runtime are lost when it redeploys or spins down.",
+      "source": "free#filesystem",
+      "checks": [],
+      "evidence": "Free instances can't attach a persistent disk. Any file a free service writes at runtime is lost when the service redeploys or spins down.",
+      "evidence_sha": "11cdb76e4c4f",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states free instances can't attach a persistent disk and that any runtime-written file is lost when the service redeploys or spins down, matching the claim exactly."
+    },
+    {
+      "id": "C20",
+      "statement": "Render private services are reachable only over your private network.",
+      "source": "service-types#overview",
+      "checks": [],
+      "evidence": "Render runs web services, static sites, private services, background workers, and cron jobs. Web services and static sites are reachable from the public internet. Private services are reachable only over your private network. Background workers run continuously without receiving traffic, and cron jobs run a command on a schedule and then exit.",
+      "evidence_sha": "a6e96d37664a",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that private services are reachable only over your private network.",
+      "notes": [
+        "in the ledger but never tagged in the copy"
+      ]
+    },
+    {
+      "id": "C21",
+      "statement": "Render cron jobs run a command on a schedule and then exit.",
+      "source": "service-types#overview",
+      "checks": [],
+      "evidence": "Render runs web services, static sites, private services, background workers, and cron jobs. Web services and static sites are reachable from the public internet. Private services are reachable only over your private network. Background workers run continuously without receiving traffic, and cron jobs run a command on a schedule and then exit.",
+      "evidence_sha": "a6e96d37664a",
+      "verdict": "supported",
+      "tier": "CORROBORATED",
+      "by": "model-judge",
+      "reason": "The evidence states verbatim that cron jobs run a command on a schedule and then exit."
+    }
+  ],
+  "extracted_ledger": false,
+  "dangling_tags": [],
+  "tks": [
+    "maximum HTTP request duration for Render web services",
+    "confirm the type value for a web service",
+    "confirm the runtime value for Python",
+    "confirm plan names",
+    "syntax for wiring the Key Value URL and Postgres connection string into envVars",
+    "confirm the type value for a background worker",
+    "same wiring as agent-api",
+    "confirm the type value and required fields for Render Key Value",
+    "confirm required fields for a databases entry",
+    "confirm Render Postgres supports pgvector, and which version",
+    "what signal and grace period a background worker receives when Render stops it for a deploy or restart, and whether old and new worker instances overlap"
+  ],
+  "untracked": [
+    "A free Render Postgres database expires 30 days after it's created."
+  ],
+  "counts": {
+    "VERIFIED": 0,
+    "CORROBORATED": 21,
+    "SIGNAL": 0
+  },
+  "contradicted": 0,
+  "auto_verified_rate": 0.0
+}

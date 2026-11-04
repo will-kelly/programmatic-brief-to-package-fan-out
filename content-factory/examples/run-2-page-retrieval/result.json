@@ -1,0 +1,24 @@
+{
+  "run": "state/runs/where-should-i-host-an-ai-agent-that-runs-long-tasks-sometimes-for-20-minutes-or-more/20261104T215920Z",
+  "status": "blocked",
+  "blocked_by": [
+    "11 open TKs"
+  ],
+  "source": "in-house",
+  "claims": 21,
+  "tks": 11,
+  "tier_verified": 0,
+  "tier_corroborated": 21,
+  "tier_signal": 0,
+  "contradicted": 0,
+  "untracked": 1,
+  "lint_errors": 0,
+  "lint_warnings": 0,
+  "auto_verified_rate": 0.0,
+  "estimated_minutes": 14.5,
+  "unassisted_minutes": 52.0,
+  "snapshot_id": "20261104T215119Z",
+  "draft_sha": "91b38a6ebed2",
+  "date": "2026-11-04",
+  "draft_cost_usd": 0.201827
+}

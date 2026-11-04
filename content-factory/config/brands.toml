@@ -1,0 +1,112 @@
+# Who counts as "us" and who counts as a competitor when the survey reads an
+# answer. Aliases are matched case-insensitively on word boundaries.
+# `domains` decides whose URL a citation belongs to.
+
+[us]
+name = "Render"
+aliases = ["Render", "render.com", "Render.com", "onrender.com", "render.yaml"]
+# "render" is a common English verb. These patterns rule out the verb sense.
+exclude = ["render(s|ed|ing)? (the|a|an|it|them|this|that|your|html|components?|pages?|templates?)", "server[- ]side render", "client[- ]side render", "re-?render"]
+domains = ["render.com", "onrender.com", "community.render.com"]
+
+[[competitor]]
+name = "Railway"
+aliases = ["Railway", "railway.app", "railway.com"]
+domains = ["railway.app", "railway.com", "docs.railway.com"]
+
+[[competitor]]
+name = "Fly.io"
+aliases = ["Fly.io", "Fly"]
+exclude = ["on the fly", "fly(ing)? (by|in|out)"]
+domains = ["fly.io"]
+
+[[competitor]]
+name = "Heroku"
+aliases = ["Heroku"]
+domains = ["heroku.com", "devcenter.heroku.com"]
+
+[[competitor]]
+name = "Vercel"
+aliases = ["Vercel"]
+domains = ["vercel.com"]
+
+[[competitor]]
+name = "Netlify"
+aliases = ["Netlify"]
+domains = ["netlify.com"]
+
+[[competitor]]
+name = "DigitalOcean App Platform"
+aliases = ["DigitalOcean App Platform", "App Platform", "DigitalOcean"]
+domains = ["digitalocean.com"]
+
+[[competitor]]
+name = "Google Cloud Run"
+aliases = ["Cloud Run"]
+domains = ["cloud.google.com"]
+
+[[competitor]]
+name = "AWS"
+aliases = ["AWS", "Amazon Web Services", "ECS", "Fargate", "Elastic Beanstalk", "App Runner", "Lambda"]
+domains = ["aws.amazon.com", "docs.aws.amazon.com"]
+
+[[competitor]]
+name = "Azure"
+aliases = ["Azure", "Azure Container Apps", "Azure App Service"]
+domains = ["azure.microsoft.com", "learn.microsoft.com"]
+
+[[competitor]]
+name = "Northflank"
+aliases = ["Northflank"]
+domains = ["northflank.com"]
+
+[[competitor]]
+name = "Koyeb"
+aliases = ["Koyeb"]
+domains = ["koyeb.com"]
+
+[[competitor]]
+name = "Modal"
+aliases = ["Modal"]
+exclude = ["modal (dialog|window|component|box|popup)"]
+domains = ["modal.com"]
+
+[[competitor]]
+name = "Supabase"
+aliases = ["Supabase"]
+domains = ["supabase.com"]
+
+[[competitor]]
+name = "Neon"
+aliases = ["Neon"]
+domains = ["neon.tech", "neon.com"]
+
+[[competitor]]
+name = "Coolify"
+aliases = ["Coolify"]
+domains = ["coolify.io"]
+
+[[competitor]]
+name = "Cloudflare"
+aliases = ["Cloudflare Workers", "Cloudflare"]
+domains = ["cloudflare.com", "developers.cloudflare.com"]
+
+[[competitor]]
+name = "E2B"
+aliases = ["E2B"]
+domains = ["e2b.dev"]
+
+[[competitor]]
+name = "Temporal"
+aliases = ["Temporal"]
+domains = ["temporal.io"]
+
+[[competitor]]
+name = "Inngest"
+aliases = ["Inngest"]
+domains = ["inngest.com"]
+
+[[competitor]]
+name = "Trigger.dev"
+aliases = ["Trigger.dev"]
+domains = ["trigger.dev"]

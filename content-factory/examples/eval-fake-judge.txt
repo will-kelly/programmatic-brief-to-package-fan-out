@@ -1,0 +1,9 @@
+suite       precision  recall   (baseline)
+factcheck   1.0        0.75     (1.0, 0.75)
+lint        1.0        1.0      (1.0, 1.0)
+brands      1.0        1.0      (1.0, 1.0)
+
+misses:
+  - subtle-negation.md: factcheck missed C2
+
+no regression against baseline

@@ -1,0 +1,24 @@
+{
+  "run": "state/checks/heroku-alternatives-draft/20261104T220428Z",
+  "status": "blocked",
+  "blocked_by": [
+    "1 contradicted claims",
+    "3 lint errors"
+  ],
+  "source": "partner:acme-content",
+  "claims": 3,
+  "tks": 0,
+  "tier_verified": 0,
+  "tier_corroborated": 2,
+  "tier_signal": 1,
+  "contradicted": 1,
+  "untracked": 0,
+  "lint_errors": 3,
+  "lint_warnings": 6,
+  "auto_verified_rate": 0.0,
+  "estimated_minutes": 10.0,
+  "unassisted_minutes": 16.0,
+  "snapshot_id": "20261104T215119Z",
+  "draft_sha": "1c2466a6a4a8",
+  "date": "2026-11-04"
+}

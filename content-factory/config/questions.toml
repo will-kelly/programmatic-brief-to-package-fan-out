@@ -1,0 +1,257 @@
+# The question set the survey asks answer engines. Each question belongs to a
+# topic cluster. `demand` is a relative weight (1-5) for how often developers
+# ask this kind of thing; replace the seed values with search volume, support
+# tickets, or agent-traffic counts once you have them. `format` is the content
+# type that would answer it best if Render has a gap here.
+
+[[question]]
+id = "q-fastapi-worker"
+cluster = "python-stacks"
+demand = 4
+format = "stack-guide"
+text = "Where should I deploy a FastAPI app that also needs a background worker?"
+
+[[question]]
+id = "q-django-postgres"
+cluster = "python-stacks"
+demand = 5
+format = "stack-guide"
+text = "What's the easiest way to deploy a Django app with Postgres?"
+
+[[question]]
+id = "q-flask-cheap"
+cluster = "python-stacks"
+demand = 3
+format = "stack-guide"
+text = "Cheapest place to host a small Flask API in production?"
+
+[[question]]
+id = "q-celery-host"
+cluster = "python-stacks"
+demand = 3
+format = "use-case"
+text = "How do I host Celery workers and Redis without managing servers?"
+
+[[question]]
+id = "q-nextjs-backend"
+cluster = "js-stacks"
+demand = 5
+format = "stack-guide"
+text = "Where should I host a Next.js app that has a separate Node backend and a database?"
+
+[[question]]
+id = "q-express-websockets"
+cluster = "js-stacks"
+demand = 3
+format = "stack-guide"
+text = "Where can I deploy an Express server that uses WebSockets?"
+
+[[question]]
+id = "q-nest-docker"
+cluster = "js-stacks"
+demand = 2
+format = "stack-guide"
+text = "How do I deploy a NestJS app from a Dockerfile to a managed platform?"
+
+[[question]]
+id = "q-bun-host"
+cluster = "js-stacks"
+demand = 2
+format = "stack-guide"
+text = "What platforms can host a Bun web server?"
+
+[[question]]
+id = "q-rails-sidekiq"
+cluster = "other-stacks"
+demand = 3
+format = "stack-guide"
+text = "Best Heroku-like place to run a Rails app with Sidekiq?"
+
+[[question]]
+id = "q-go-api"
+cluster = "other-stacks"
+demand = 2
+format = "stack-guide"
+text = "Where should I deploy a Go API with a managed Postgres database?"
+
+[[question]]
+id = "q-laravel-queue"
+cluster = "other-stacks"
+demand = 2
+format = "stack-guide"
+text = "How do I deploy a Laravel app with queue workers without running my own VPS?"
+
+[[question]]
+id = "q-agent-long-running"
+cluster = "ai-agents"
+demand = 5
+format = "use-case"
+text = "Where should I host an AI agent that runs long tasks, sometimes for 20 minutes or more?"
+
+[[question]]
+id = "q-mcp-server-host"
+cluster = "ai-agents"
+demand = 4
+format = "use-case"
+text = "How do I deploy a remote MCP server so other people can connect to it?"
+
+[[question]]
+id = "q-llm-queue"
+cluster = "ai-agents"
+demand = 4
+format = "use-case"
+text = "What's a good architecture and host for an app that queues LLM calls and processes them in the background?"
+
+[[question]]
+id = "q-rag-app"
+cluster = "ai-agents"
+demand = 4
+format = "use-case"
+text = "Where should I deploy a RAG app with a vector database and a Python API?"
+
+[[question]]
+id = "q-agent-sandbox"
+cluster = "ai-agents"
+demand = 3
+format = "use-case"
+text = "Where can I run code that an AI agent generates in an isolated sandbox?"
+
+[[question]]
+id = "q-durable-workflows"
+cluster = "ai-agents"
+demand = 3
+format = "use-case"
+text = "What can I use to run durable, retryable multi-step background jobs for an AI pipeline without managing infrastructure?"
+
+[[question]]
+id = "q-vercel-timeout"
+cluster = "ai-agents"
+demand = 4
+format = "comparison"
+text = "My Vercel function keeps timing out on long LLM calls. Where should I move the backend?"
+
+[[question]]
+id = "q-heroku-alt"
+cluster = "comparisons"
+demand = 5
+format = "comparison"
+text = "What's the best Heroku alternative in 2026?"
+
+[[question]]
+id = "q-render-vs-railway"
+cluster = "comparisons"
+demand = 4
+format = "comparison"
+text = "Render vs Railway: which should I pick for a production SaaS?"
+
+[[question]]
+id = "q-render-vs-fly"
+cluster = "comparisons"
+demand = 3
+format = "comparison"
+text = "Render or Fly.io for a small team's backend?"
+
+[[question]]
+id = "q-paas-vs-aws"
+cluster = "comparisons"
+demand = 4
+format = "comparison"
+text = "When does it make sense to leave a PaaS and move to AWS?"
+
+[[question]]
+id = "q-render-free-tier"
+cluster = "render-facts"
+demand = 4
+format = "docs"
+text = "What are the limits of Render's free tier?"
+
+[[question]]
+id = "q-render-cold-start"
+cluster = "render-facts"
+demand = 3
+format = "docs"
+text = "Why is my app on Render slow on the first request?"
+
+[[question]]
+id = "q-render-postgres-free"
+cluster = "render-facts"
+demand = 3
+format = "docs"
+text = "Does Render's free Postgres database expire?"
+
+[[question]]
+id = "q-render-yaml"
+cluster = "render-facts"
+demand = 3
+format = "docs"
+text = "How do I define a web service, a worker, and a database in render.yaml?"
+
+[[question]]
+id = "q-render-port"
+cluster = "render-facts"
+demand = 2
+format = "docs"
+text = "What port should my app listen on when deployed to Render?"
+
+[[question]]
+id = "q-render-disks"
+cluster = "render-facts"
+demand = 2
+format = "docs"
+text = "Can I use a persistent disk on Render, and what are the tradeoffs?"
+
+[[question]]
+id = "q-preview-envs"
+cluster = "platform-ops"
+demand = 3
+format = "use-case"
+text = "Which hosting platforms create a full preview environment for every pull request, including databases?"
+
+[[question]]
+id = "q-cron-host"
+cluster = "platform-ops"
+demand = 3
+format = "use-case"
+text = "Where can I run a scheduled cron job in the cloud without keeping a server up?"
+
+[[question]]
+id = "q-private-network"
+cluster = "platform-ops"
+demand = 2
+format = "use-case"
+text = "How do I run an internal service that only my other services can reach on a PaaS?"
+
+[[question]]
+id = "q-autoscale"
+cluster = "platform-ops"
+demand = 3
+format = "use-case"
+text = "Which managed platforms autoscale web services based on CPU without Kubernetes?"
+
+[[question]]
+id = "q-zero-downtime"
+cluster = "platform-ops"
+demand = 2
+format = "docs"
+text = "How do I get zero-downtime deploys for a web app without writing infrastructure code?"
+
+[[question]]
+id = "q-monorepo"
+cluster = "platform-ops"
+demand = 2
+format = "docs"
+text = "How do I deploy several services from one monorepo and only rebuild what changed?"
+
+[[question]]
+id = "q-docker-compose"
+cluster = "platform-ops"
+demand = 3
+format = "use-case"
+text = "I have a docker-compose app with three services. Where can I deploy it as-is or close to it?"
+
+[[question]]
+id = "q-static-plus-api"
+cluster = "platform-ops"
+demand = 2
+format = "stack-guide"
+text = "Where can I host a React static site and its API together under one account?"

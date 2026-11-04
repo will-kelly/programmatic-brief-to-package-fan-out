@@ -20,6 +20,15 @@ one.
 ./fanout
 ```
 
+## Also in this repo: a content factory for answer engines
+
+[`content-factory/`](content-factory/README.md) is the upstream half of this
+pipeline, built against Render's Senior Content Engineer posting. It
+surveys LLM answers to find where a product is missing, buried, or
+described wrongly, ranks the fixes, and drafts and fact-checks the pages
+claim by claim against a docs snapshot. It reuses this repo's ledger idea
+(every claim traced to a source) and adds refresh by docs-section hash.
+
 ## A real run
 
 `examples/sample-run/` is one unedited run on `examples/ai-pilot-stall.md`

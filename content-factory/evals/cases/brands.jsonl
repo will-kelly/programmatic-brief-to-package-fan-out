@@ -1,0 +1,14 @@
+{"text": "Deploy it on Render or Railway; both handle this.", "expect": ["Render", "Railway"]}
+{"text": "React will render the component twice in strict mode.", "expect": []}
+{"text": "Server-side rendering in Next.js runs on Vercel by default.", "expect": ["Vercel"]}
+{"text": "I'd pick Fly.io for edge regions, or Heroku if you want add-ons.", "expect": ["Fly.io", "Heroku"]}
+{"text": "Make sure the template renders the page before caching.", "expect": []}
+{"text": "Your app is live at https://myapp.onrender.com once the build finishes.", "expect": ["Render"]}
+{"text": "Open a modal dialog to confirm deletion.", "expect": []}
+{"text": "For GPU jobs, Modal is the simplest option.", "expect": ["Modal"]}
+{"text": "Use Neon for serverless Postgres and Render for the API.", "expect": ["Neon", "Render"]}
+{"text": "It changes on the fly as you edit the config.", "expect": []}
+{"text": "AWS ECS on Fargate gives you the most control.", "expect": ["AWS"]}
+{"text": "Cloud Run scales to zero; Railway doesn't by default.", "expect": ["Google Cloud Run", "Railway"]}
+{"text": "The browser has to re-render the whole list.", "expect": []}
+{"text": "Render.com's Blueprints are the closest thing to docker-compose.", "expect": ["Render"]}

@@ -1,0 +1,11 @@
+question_id,engine,cited_url,observed
+q-django-postgres,perplexity,https://testdriven.io/blog/django-render/,2026-10-28
+q-django-postgres,perplexity,https://render.com/docs/deploy-django,2026-10-28
+q-fastapi-worker,perplexity,https://www.reddit.com/r/FastAPI/comments/example,2026-10-28
+q-fastapi-worker,perplexity,https://railway.com/deploy/fastapi,2026-10-28
+q-celery-host,perplexity,https://docs.railway.com/guides/celery,2026-10-28
+q-celery-host,perplexity,https://testdriven.io/blog/fastapi-and-celery/,2026-10-28
+q-heroku-alt,perplexity,https://northflank.com/blog/heroku-alternatives,2026-10-28
+q-heroku-alt,perplexity,https://www.reddit.com/r/webdev/comments/example,2026-10-28
+q-nextjs-backend,perplexity,https://vercel.com/docs/frameworks/nextjs,2026-10-28
+q-rails-sidekiq,perplexity,https://dev.to/example/rails-sidekiq-on-railway,2026-10-28

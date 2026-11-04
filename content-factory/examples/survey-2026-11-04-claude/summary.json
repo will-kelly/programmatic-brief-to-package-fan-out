@@ -1,0 +1,3726 @@
+{
+  "answers": 108,
+  "unbranded_answers": 84,
+  "mention_rate": 0.8928571428571429,
+  "mention_ci": [
+    0.81,
+    0.94
+  ],
+  "first_pick_rate": 0.14285714285714285,
+  "answers_with_wrong_claims": 3,
+  "answers_with_pattern_wrong": 0,
+  "claim_verdicts": {
+    "consistent": 252,
+    "contradicts": 3,
+    "uncovered": 391
+  },
+  "registry_coverage": 0.395,
+  "cost_usd": 3.6,
+  "clusters": {
+    "ai-agents": {
+      "n": 21,
+      "k": 15,
+      "first": 1,
+      "wrong": 0,
+      "branded_n": 0,
+      "mention_rate": 0.7142857142857143,
+      "ci": [
+        0.5,
+        0.86
+      ],
+      "first_pick_rate": 0.047619047619047616
+    },
+    "comparisons": {
+      "n": 6,
+      "k": 6,
+      "first": 0,
+      "wrong": 0,
+      "branded_n": 6,
+      "mention_rate": 1.0,
+      "ci": [
+        0.61,
+        1.0
+      ],
+      "first_pick_rate": 0.0
+    },
+    "js-stacks": {
+      "n": 12,
+      "k": 12,
+      "first": 1,
+      "wrong": 0,
+      "branded_n": 0,
+      "mention_rate": 1.0,
+      "ci": [
+        0.76,
+        1.0
+      ],
+      "first_pick_rate": 0.08333333333333333
+    },
+    "other-stacks": {
+      "n": 9,
+      "k": 9,
+      "first": 2,
+      "wrong": 0,
+      "branded_n": 0,
+      "mention_rate": 1.0,
+      "ci": [
+        0.7,
+        1.0
+      ],
+      "first_pick_rate": 0.2222222222222222
+    },
+    "platform-ops": {
+      "n": 24,
+      "k": 21,
+      "first": 4,
+      "wrong": 0,
+      "branded_n": 0,
+      "mention_rate": 0.875,
+      "ci": [
+        0.69,
+        0.96
+      ],
+      "first_pick_rate": 0.16666666666666666
+    },
+    "python-stacks": {
+      "n": 12,
+      "k": 12,
+      "first": 4,
+      "wrong": 0,
+      "branded_n": 0,
+      "mention_rate": 1.0,
+      "ci": [
+        0.76,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333
+    },
+    "render-facts": {
+      "n": 0,
+      "k": 0,
+      "first": 0,
+      "wrong": 3,
+      "branded_n": 18,
+      "mention_rate": null,
+      "ci": [
+        0.0,
+        1.0
+      ],
+      "first_pick_rate": null
+    }
+  },
+  "questions": [
+    {
+      "question_id": "q-agent-long-running",
+      "cluster": "ai-agents",
+      "text": "Where should I host an AI agent that runs long tasks, sometimes for 20 minutes or more?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 9.33,
+      "avg_brands_named": 13.7,
+      "top_competitors": [
+        [
+          "AWS",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Netlify",
+          3
+        ],
+        [
+          "Cloudflare",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Platforms in the job/worker group, including Render background workers, let you pay per run, scale to zero, and avoid timeout surprises",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-agent-sandbox",
+      "cluster": "ai-agents",
+      "text": "Where can I run code that an AI agent generates in an isolated sandbox?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 0.0,
+      "ci": [
+        0.0,
+        0.56
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": null,
+      "avg_brands_named": 4.3,
+      "top_competitors": [
+        [
+          "E2B",
+          3
+        ],
+        [
+          "Modal",
+          3
+        ],
+        [
+          "Cloudflare",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-durable-workflows",
+      "cluster": "ai-agents",
+      "text": "What can I use to run durable, retryable multi-step background jobs for an AI pipeline without managing infrastructure?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 0.0,
+      "ci": [
+        0.0,
+        0.56
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": null,
+      "avg_brands_named": 7.0,
+      "top_competitors": [
+        [
+          "Inngest",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Cloudflare",
+          3
+        ],
+        [
+          "Trigger.dev",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-llm-queue",
+      "cluster": "ai-agents",
+      "text": "What's a good architecture and host for an app that queues LLM calls and processes them in the background?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 5.67,
+      "avg_brands_named": 9.3,
+      "top_competitors": [
+        [
+          "Temporal",
+          3
+        ],
+        [
+          "Inngest",
+          3
+        ],
+        [
+          "Trigger.dev",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Workers on Render are always-on with no timeout limits",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has no timeout limits on workers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render services are easy to scale horizontally",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is cheap",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-mcp-server-host",
+      "cluster": "ai-agents",
+      "text": "How do I deploy a remote MCP server so other people can connect to it?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 6.67,
+      "avg_brands_named": 7.7,
+      "top_competitors": [
+        [
+          "Cloudflare",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "On Render, the container runs behind a TLS-terminating proxy, so Render serves the app over HTTPS",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-rag-app",
+      "cluster": "ai-agents",
+      "text": "Where should I deploy a RAG app with a vector database and a Python API?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.33,
+      "avg_brands_named": 9.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Supabase",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render gives you HTTPS",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render autoscales",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is a suitable host for a Python API (FastAPI)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is cheap to run an API on",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can host a FastAPI API alongside managed Postgres with pgvector and hosted embedding/LLM APIs, and it scales a long way before you need to change anything",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-vercel-timeout",
+      "cluster": "ai-agents",
+      "text": "My Vercel function keeps timing out on long LLM calls. Where should I move the backend?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 5.0,
+      "avg_brands_named": 8.0,
+      "top_competitors": [
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Inngest",
+          3
+        ],
+        [
+          "Trigger.dev",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render runs persistent, long-running processes (listed under options with long-running processes)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has no request cap (no per-request timeout limit)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can host a Node or Python server",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can run a persistent Node or Python server",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has no request timeouts for a persistent server",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has no request time cap for such servers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has proxy idle timeouts to watch for, mitigated by streaming or keep-alive",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-heroku-alt",
+      "cluster": "comparisons",
+      "text": "What's the best Heroku alternative in 2026?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 2.0,
+      "avg_brands_named": 11.7,
+      "top_competitors": [
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render offers managed Postgres",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has predictable pricing",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has a free/hobby tier suitable for prototypes",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's managed Postgres is more hands-off than Fly.io's",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can run Heroku-style apps (Rails, Django, Node, etc.) as a near drop-in replacement",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers managed Postgres",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Some regions and features are limited compared with the big clouds",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-paas-vs-aws",
+      "cluster": "comparisons",
+      "text": "When does it make sense to leave a PaaS and move to AWS?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 2.0,
+      "avg_brands_named": 6.3,
+      "top_competitors": [
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-vs-fly",
+      "cluster": "comparisons",
+      "text": "Render or Fly.io for a small team's backend?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 3.0,
+      "top_competitors": [
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Railway",
+          1
+        ],
+        [
+          "Google Cloud Run",
+          1
+        ],
+        [
+          "AWS",
+          1
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Connect a repo, set a build/start command, and it deploys.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers managed Postgres.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Predictable, flat per-service pricing.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Mostly single-region per service, not designed for global edge deployment.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Less control over networking and VM internals.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Paid instances avoid spinning down when idle.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You connect a repo and it deploys.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render provides managed Postgres",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Backups, point-in-time recovery on paid tiers, and read replicas are built in",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Each service has a flat per-instance price",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has fewer regions",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Less control over the runtime",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Costs climb as you add instances",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You connect a repo, it builds and deploys, and you're done.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers managed Postgres.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has fewer regions (than Fly.io).",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has fixed instance tiers that make monthly costs predictable and easy to forecast.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render scaling costs climb faster at higher tiers.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-vs-railway",
+      "cluster": "comparisons",
+      "text": "Render vs Railway: which should I pick for a production SaaS?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 4.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Neon",
+          3
+        ],
+        [
+          "Supabase",
+          3
+        ],
+        [
+          "AWS",
+          1
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render's managed Postgres offers point-in-time recovery on paid tiers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's managed Postgres offers read replicas",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's managed Postgres offers high-availability options",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render charges a fixed price per instance, so bills are predictable",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has SOC 2 Type II compliance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers HIPAA compliance on higher tiers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render pricing is fixed per-instance tiers plus a per-seat workspace plan",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render managed Postgres offers PITR, read replicas, and HA on higher tiers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has SOC 2 Type II, ISO 27001, and a HIPAA option on higher plans",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render provides static outbound IPs and DDoS protection",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has several regions across the US, EU, and Asia",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports manual scaling and autoscaling on paid tiers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has a longer production track record with larger customers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render runs Nixpacks/buildpack apps",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's paid managed Postgres tiers include point-in-time recovery, read replicas, and high availability",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render charges per instance, so the bill is easy to forecast",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has SOC 2 Type II compliance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has a HIPAA-eligible offering",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render provides health checks",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers autoscaling on higher plans",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-bun-host",
+      "cluster": "js-stacks",
+      "text": "What platforms can host a Bun web server?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 2.0,
+      "avg_brands_named": 13.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "DigitalOcean App Platform",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render has native Bun runtime support for web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers a native Bun runtime option for web services (first-class/native Bun support)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render: native Bun runtime for web services.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is a persistent host suited to WebSockets and long-lived connections, as opposed to serverless.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-express-websockets",
+      "cluster": "js-stacks",
+      "text": "Where can I deploy an Express server that uses WebSockets?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.0,
+      "avg_brands_named": 11.7,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "DigitalOcean App Platform",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render Web Services support WebSockets natively",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports Git-based deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Web Services support WebSockets out of the box.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Web Services support WebSockets out of the box",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-nest-docker",
+      "cluster": "js-stacks",
+      "text": "How do I deploy a NestJS app from a Dockerfile to a managed platform?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 3.0,
+      "avg_brands_named": 6.0,
+      "top_competitors": [
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render auto-detects a Dockerfile at the repo root",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You connect your Git repo to Render and set environment variables in the dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, every push to your main branch triggers a redeploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Each push to the branch triggers a build and deploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Environment variables are set in the service settings",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Managed platforms (including Render) send SIGTERM when they scale down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The platform's health check can be pointed at an app endpoint such as /health",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Logs written to stdout are collected automatically by the platform",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render auto-detects a Dockerfile at the repo root",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, environment variables are set in the dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, you can set a health check path",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, each push to the connected branch triggers a redeploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-nextjs-backend",
+      "cluster": "js-stacks",
+      "text": "Where should I host a Next.js app that has a separate Node backend and a database?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 4.0,
+      "avg_brands_named": 13.0,
+      "top_competitors": [
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Neon",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render is a good option for hosting a Node backend",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can run the Next.js app, the Node API, and a managed Postgres in one project",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "With internal networking on Render, the DB isn't exposed to the internet",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render shares environment variables across services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's long-lived Node process fits websockets",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render you can put the Next.js app, the Node API and Postgres together in one project",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render gives you one bill and one place to look at logs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Next.js runs fine on Render as a Node server (`next start` or `output: 'standalone'`), without Vercel-specific features like edge middleware and edge image optimization",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Running Next.js on Render loses some of Vercel's Next.js-specific optimizations (edge caching, automatic ISR handling)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A standard `next start` works fine on Render",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-go-api",
+      "cluster": "other-stacks",
+      "text": "Where should I deploy a Go API with a managed Postgres database?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.0,
+      "avg_brands_named": 8.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Neon",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render offers managed Postgres in the same dashboard as the app",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is priced predictably",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render injects the DATABASE_URL environment variable",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render deploys a Go binary straight from Git (native build, no Docker)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's managed Postgres is in the same dashboard as the app",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has predictable pricing",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render costs more at large scale",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports deploying Go natively (without Docker)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers managed Postgres in the same dashboard as the service",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has predictable pricing",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render sends SIGTERM to the app on deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-laravel-queue",
+      "cluster": "other-stacks",
+      "text": "How do I deploy a Laravel app with queue workers without running my own VPS?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 2.67,
+      "avg_brands_named": 6.7,
+      "top_competitors": [
+        [
+          "AWS",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "PaaS platforms (including Render) restart the worker service when you deploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Docker-based Render service's start command can be overridden with a `dockerCommand` key in render.yaml",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render cron service takes a `schedule` in cron syntax and can run every minute (\"* * * * *\")",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Running Laravel Horizon (`php artisan horizon`) as the worker process works on Render",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {
+        "third-party:cloud.laravel.com": 1,
+        "third-party:vapor.laravel.com": 1
+      }
+    },
+    {
+      "question_id": "q-rails-sidekiq",
+      "cluster": "other-stacks",
+      "text": "Best Heroku-like place to run a Rails app with Sidekiq?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.0,
+      "avg_brands_named": 5.7,
+      "top_competitors": [
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "DigitalOcean App Platform",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render supports git-push deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers managed Postgres",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports git-push deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has a run-command hook usable for `rails db:migrate` on deploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render background workers bill like web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Managed Postgres is built in",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Key Value is Valkey",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has git-push deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports a pre-deploy command (e.g., for rails db:migrate)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-autoscale",
+      "cluster": "platform-ops",
+      "text": "Which managed platforms autoscale web services based on CPU without Kubernetes?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 4.0,
+      "avg_brands_named": 10.0,
+      "top_competitors": [
+        [
+          "AWS",
+          3
+        ],
+        [
+          "Azure",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render supports CPU-based autoscaling for web services without you running Kubernetes",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render autoscaling targets CPU and/or memory utilization percentage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render autoscaling is available on paid plans",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render autoscaling lets you set minimum and maximum instance counts",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render offers horizontal autoscaling of a web service based on a target CPU and/or memory utilization percentage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's autoscaling is only available on paid plans",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can scale a web service on CPU without the user running or configuring Kubernetes",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports autoscaling based on target CPU and/or memory utilization percentage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's autoscaling is available only on paid plans",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-cron-host",
+      "cluster": "platform-ops",
+      "text": "Where can I run a scheduled cron job in the cloud without keeping a server up?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 7.0,
+      "avg_brands_named": 12.0,
+      "top_competitors": [
+        [
+          "AWS",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "Azure",
+          3
+        ],
+        [
+          "Cloudflare",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render Cron Jobs are container-based",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Cron Jobs have low-cost paid tiers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Cron Jobs run a container on a schedule",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "With Render Cron Jobs you pay only for runtime",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-docker-compose",
+      "cluster": "platform-ops",
+      "text": "I have a docker-compose app with three services. Where can I deploy it as-is or close to it?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 4.33,
+      "avg_brands_named": 8.0,
+      "top_competitors": [
+        [
+          "DigitalOcean App Platform",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ],
+        [
+          "Coolify",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render has no direct compose import",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's `render.yaml` blueprint maps closely to compose",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports docker-compose via import / Blueprint conversion",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "When a compose app is converted for Render, each compose service becomes a Render service",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render doesn't read a docker-compose file directly",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's `render.yaml` Blueprint maps closely to docker-compose, so converting is usually quick",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-monorepo",
+      "cluster": "platform-ops",
+      "text": "How do I deploy several services from one monorepo and only rebuild what changed?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 0.0,
+      "ci": [
+        0.0,
+        0.56
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": null,
+      "avg_brands_named": 0.0,
+      "top_competitors": [],
+      "wrong_claims": [],
+      "uncovered_claims": [],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-preview-envs",
+      "cluster": "platform-ops",
+      "text": "Which hosting platforms create a full preview environment for every pull request, including databases?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 11.0,
+      "top_competitors": [
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Northflank",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "On Render, preview database data starts empty unless you seed it (a fresh DB per PR rather than a clone of real data)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "New databases in Render preview environments start empty by default",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You seed preview databases with a script or initial deploy hook",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render previews give an empty or seeded DB rather than a clone of production",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can seed the preview database with an `initialDeployHook`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Preview Environments are a paid-workspace feature",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-private-network",
+      "cluster": "platform-ops",
+      "text": "How do I run an internal service that only my other services can reach on a PaaS?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 8.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "A Render Private Service gets no public URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "In render.yaml, `type: pserv` declares a private service with no public URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render Private Service gets no public URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Background workers and web services can call a private service, but external traffic cannot",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-static-plus-api",
+      "cluster": "platform-ops",
+      "text": "Where can I host a React static site and its API together under one account?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 5.0,
+      "avg_brands_named": 9.3,
+      "top_competitors": [
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Netlify",
+          3
+        ],
+        [
+          "Cloudflare",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render web services can run Node, Python, etc.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's static site, web service, and Postgres are all managed in one dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports long-running API servers with WebSockets / persistent connections",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can host a traditional Express/FastAPI/Django server and long jobs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render web services can run APIs written in Node, Python, Go, etc.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, the React static frontend and the backend API can be hosted under a single account, in a single project",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports WebSockets and long-running processes",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's Static Site service is free",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Web Services can run any language as long-running servers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can host a traditional Express/FastAPI-style API server",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports WebSockets",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports serving the API from the same domain (e.g. /api/*) through built-in routing or rewrite rules",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-zero-downtime",
+      "cluster": "platform-ops",
+      "text": "How do I get zero-downtime deploys for a web app without writing infrastructure code?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.67,
+      "avg_brands_named": 10.3,
+      "top_competitors": [
+        [
+          "Vercel",
+          3
+        ],
+        [
+          "Netlify",
+          3
+        ],
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render waits for the health check to pass before switching traffic to the new version",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, you set a health check path in the dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render starts the new instance, waits for the health check, shifts traffic, then stops the old one",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The effort needed on Render for zero-downtime deploys is setting a health check path",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render starts the new instance, waits for the health check, then switches traffic",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render you set a health check path for deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports running database migrations as a pre-deploy step",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-celery-host",
+      "cluster": "python-stacks",
+      "text": "How do I host Celery workers and Redis without managing servers?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 2.33,
+      "avg_brands_named": 9.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "On Render, a minimal setup is defined with a Procfile (web, worker, beat process types)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render injects a REDIS_URL environment variable that the app reads for its Celery broker/backend",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render, the worker and Redis can be managed together in one dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render Background Worker can be configured with the start command `celery -A app worker --loglevel=info`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-django-postgres",
+      "cluster": "python-stacks",
+      "text": "What's the easiest way to deploy a Django app with Postgres?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.3333333333333333,
+      "avg_rank": 1.67,
+      "avg_brands_named": 5.3,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "DigitalOcean App Platform",
+          2
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render provides Managed Postgres alongside the web service",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render PostgreSQL instance provides an Internal Database URL that the web service can use",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render apps are served at a yourapp.onrender.com hostname",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is a managed PaaS that deploys from Git (push code to GitHub, then create a Web Service from your repo)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render provisions managed Postgres: you can create a PostgreSQL instance in Render",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render PostgreSQL instance provides an 'Internal Database URL' to copy into the app",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render Web Service lets you set a build command (e.g., ./build.sh) and a start command (e.g., gunicorn yourproject.wsgi:application)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Web Services accept environment variables, including a PYTHON_VERSION variable to set the Python version",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render web services are served at a yourapp.onrender.com hostname",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render has a Shell tab where you can run commands like python manage.py createsuperuser",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A render.yaml blueprint lets the setup be reproduced with one click",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render PostgreSQL instance provides an 'Internal Database URL' that a web service can use to connect",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render web service is configured with a build command and a start command",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Python version for a Render service is set with the `PYTHON_VERSION` environment variable",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render apps are served at a default `yourapp.onrender.com` hostname",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can run commands such as `python manage.py createsuperuser` from a Shell tab in Render",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-fastapi-worker",
+      "cluster": "python-stacks",
+      "text": "Where should I deploy a FastAPI app that also needs a background worker?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 8.0,
+      "top_competitors": [
+        [
+          "Railway",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ],
+        [
+          "Heroku",
+          3
+        ],
+        [
+          "Google Cloud Run",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "On Render you can define a web service and a worker service from the same repo",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports building one Docker image and running it with two different commands (API and worker)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On Render you can size the worker independently and set generous timeouts for long or heavy jobs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-flask-cheap",
+      "cluster": "python-stacks",
+      "text": "Cheapest place to host a small Flask API in production?",
+      "n": 3,
+      "branded": false,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 0.0,
+      "avg_rank": 4.67,
+      "avg_brands_named": 8.3,
+      "top_competitors": [
+        [
+          "Google Cloud Run",
+          3
+        ],
+        [
+          "AWS",
+          3
+        ],
+        [
+          "DigitalOcean App Platform",
+          3
+        ],
+        [
+          "Fly.io",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Paid instances start around $7/month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render deploys straight from git",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render handles TLS for you",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render paid plans run about $5–7/month for a small always-on instance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render is a managed option costing ~$5–7/month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "With Render, you push and it deploys",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Expect to pay a few dollars for production on Render",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-cold-start",
+      "cluster": "render-facts",
+      "text": "Why is my app on Render slow on the first request?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 3.0,
+      "top_competitors": [
+        [
+          "Neon",
+          3
+        ],
+        [
+          "Supabase",
+          3
+        ]
+      ],
+      "wrong_claims": [
+        {
+          "claim": "Even on paid plans, slow app startup delays the first response after a deploy",
+          "verdict": "contradicts",
+          "fact_id": "F-zero-downtime",
+          "by": "model"
+        }
+      ],
+      "uncovered_claims": [
+        {
+          "claim": "Spinning back up typically takes 30–60+ seconds",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Paid instance types (Starter or higher) don't spin down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Upgrading to a paid instance type is the only fix Render supports for spin-down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Keep-alive pings use up free-tier hours",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render services have separate build and start commands, and assets can be built in the build command",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Render Postgres/Redis dependencies may themselves have cold starts and be waking up",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render service runs in a chosen region, and the app and database can be placed in the same region",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Service logs are viewable in the Render dashboard, including boot logs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The wake-up request can take 30–60 seconds or more",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On wake-up, Render restarts the container and boots the runtime",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "On wake-up, the service must pass health checks before Render routes traffic to it",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Paid instance types, starting at the Starter tier, never spin down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free instance hours are capped per month per workspace, so an always-on free service can use up the allowance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render free Postgres can sleep (cold start) like other free-tier databases",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render's logs show timestamps that reveal whether time goes to container boot or to request handling",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Spin-up after idling usually takes 30–60 seconds, sometimes longer for heavy apps",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The service's Events/Logs in the dashboard show it spinning down and starting back up",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Paid instance types (Starter and up) don't spin down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free instance hours are capped per month, so keeping a service awake 24/7 can use them up",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports a pre-deploy command, separate from the start command, that can run migrations",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-disks",
+      "cluster": "render-facts",
+      "text": "Can I use a persistent disk on Render, and what are the tradeoffs?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 2.0,
+      "top_competitors": [
+        [
+          "Cloudflare",
+          3
+        ]
+      ],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Persistent disks are available on paid web services, private services, and background workers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disks aren't available on static sites or cron jobs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You attach a disk to a service and choose a mount path (e.g., /var/data) and a size",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only files under the disk's mount path persist; the rest of the filesystem is ephemeral and gets wiped on every deploy or restart",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk billing is per GB per month, roughly $0.25/GB",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One disk per service; other services can't mount it",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The disk isn't mounted during the build or the pre-deploy command, only at runtime",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk size can be increased but not reduced",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render takes daily disk snapshots, kept for about 7 days, and you can restore from them",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports persistent disks",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Persistent disks are supported on web services, private services, and background workers; static sites and cron jobs can't use them",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One disk per service, mounted at a path you choose (e.g. /var/data)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only files written under the disk mount path survive deploys and restarts; the rest of the filesystem is ephemeral",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "With a disk, Render stops the old instance before starting the new one, causing a short outage on every deploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A disk belongs to one service; other services, cron jobs, and one-off jobs can't read it directly",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk size can be increased but never shrunk",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disks get automatic daily snapshots, kept about 7 days, restorable from the dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disks are billed per GB per month (historically about $0.25/GB) on top of instance cost",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A disk is tied to one service and region; migrating means copying data out manually, e.g. via SSH, rsync, or scp",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Postgres is managed, backed up, and shareable across services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Render disk can't provide a shared location for multiple workers or cron jobs to write to",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk configuration can be defined in render.yaml",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render supports persistent disks (block storage) on paid web services, private services, and background workers",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You attach a disk under the service's Disks settings, or with a `disk:` block in render.yaml, and give it a mount path such as /var/data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render stops the old instance before starting the new one so the disk can move, causing a short outage on each deploy or restart",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only the owning service can use the disk; other services, cron jobs, and one-off jobs can't mount it",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only the mount path persists; anything written elsewhere (e.g. /tmp, app directory) is lost on each deploy because the rest of the filesystem is ephemeral",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render takes automatic daily disk snapshots and keeps them for about 7 days",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Restoring a snapshot rolls the whole disk back",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk size can be increased but not shrunk",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Disk storage is billed per GB per month on top of the instance cost",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render Postgres is managed, with backups and multi-service access",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-free-tier",
+      "cluster": "render-facts",
+      "text": "What are the limits of Render's free tier?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 1.7,
+      "top_competitors": [
+        [
+          "Neon",
+          1
+        ],
+        [
+          "Supabase",
+          1
+        ]
+      ],
+      "wrong_claims": [
+        {
+          "claim": "Free web services have no zero-downtime guarantees",
+          "verdict": "contradicts",
+          "fact_id": "F-zero-downtime",
+          "by": "model"
+        }
+      ],
+      "uncovered_claims": [
+        {
+          "claim": "The cold start can take about a minute",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "750 free instance hours per workspace per month, shared across all free web services; services are suspended until next month if exhausted",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services get about 512 MB RAM and 0.1 CPU",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services have no SSH or shell access",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services have no scaling",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services have no one-off jobs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render may restart free services at any time",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After expiry there's a short grace period to upgrade, then the database is deleted",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres includes 1 GB storage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One free Postgres database per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has 25 MB of memory",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has no persistence; data is lost on restart",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "About 100 GB/month of outbound bandwidth included workspace-wide",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "About 500 pipeline/build minutes per month workspace-wide",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Private services are not available on free",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites are free, with a global CDN and custom domains",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Bandwidth and build-minute limits apply to static sites",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Pinging a service to keep it awake may conflict with Render's terms",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services get 750 instance hours per workspace per month, shared across all free web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "When free instance hours run out, free web services are suspended until the next month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Waking a spun-down free service takes about a minute",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services have 512 MB RAM and 0.1 CPU",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services can't scale beyond one instance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "SSH or shell access is not available on free web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One-off jobs are not available on free web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Preview environments are not available on free web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Outbound SMTP on ports 25, 465, and 587 is blocked for free web services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render can restart free services at any time",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has 1 GB of storage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After a free Postgres database expires, there is a 14-day grace period to upgrade before it's deleted",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only one free Postgres database is allowed per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has 25 MB of memory",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value allows about 50 connections",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has no persistence; data lives only in memory and is lost on restart",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Hobby plan includes 100 GB of outbound bandwidth per month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Bandwidth overages on the Hobby plan are billed, or the service is suspended",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Hobby plan includes 500 build pipeline minutes per month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites are free",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites count against the same workspace bandwidth allowance",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites don't spin down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Private services require a paid instance type",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services get 512 MB RAM and 0.1 CPU",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A cold start can take up to about a minute",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "750 free instance hours per workspace per month, shared across all free services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "If free instance hours run out, free services are suspended until the next month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services are single instance only, with no scaling",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free web services have no shell/SSH access and no one-off jobs",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Outbound SMTP ports (25, 465, 587) are blocked on free services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render may restart free services at any time",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has 1 GB storage with limited RAM and CPU",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After expiry there is a grace period of about 14 days to upgrade before the database is deleted",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Only one free Postgres database per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has 25 MB of memory and around 50 connections",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Key Value has no persistence; data is lost on restart",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Hobby plan includes about 100 GB of outbound bandwidth per month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Hobby plan includes about 500 build minutes per month",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Exceeding bandwidth or build limits can lead to overage charges (with a card on file) or suspension",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Private services are not available on the free tier",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites are free with no spin-down",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Static sites are served from a CDN and count against bandwidth",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {
+        "Render": 3
+      }
+    },
+    {
+      "question_id": "q-render-port",
+      "cluster": "render-facts",
+      "text": "What port should my app listen on when deployed to Render?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 1.0,
+      "top_competitors": [],
+      "wrong_claims": [
+        {
+          "claim": "If you don't use PORT, Render scans for whatever port your app opens",
+          "verdict": "contradicts",
+          "fact_id": "F-port-default",
+          "by": "model"
+        }
+      ],
+      "uncovered_claims": [
+        {
+          "claim": "You can set `PORT` yourself in the service's Environment settings, and Render routes traffic to whatever port that variable says.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "If your app ends up on a different port, Render tries to detect the open port.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Ports `18012`, `18013`, and `19099` are reserved because Render uses them internally.",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can change the port by setting PORT yourself in the service's environment variables",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render detects open ports automatically",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render reserves a few ports, such as 18012, 18013, and 19099",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can set your own PORT env var in the service's Environment settings, and Render will route traffic to it",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "If you bind to localhost, Render's router can't reach your app and the deploy will fail with a 'no open ports detected' error",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Ports 18012, 18013, and 19099 are reserved; Render uses them internally",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "For Docker deploys, EXPOSE is optional",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-postgres-free",
+      "cluster": "render-facts",
+      "text": "Does Render's free Postgres database expire?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 1.0,
+      "top_competitors": [],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "Render shortened the free database expiration from 90 days in 2024",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After it expires, the free database becomes inaccessible",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After expiration there are 14 days to upgrade to a paid instance type, otherwise Render deletes the database and its data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One free database per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free databases get about 1 GB of storage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free databases have no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render emails reminders before a free database expires",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can upgrade to a paid instance before or during the grace period to keep the data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can export the data with pg_dump using the external connection URL from the dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render shortened the free Postgres expiry from 90 days to 30 days in 2024",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "There's a 14-day grace period after expiry during which you can upgrade and keep your data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "If you don't upgrade within the grace period, Render deletes the database and its data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Render emails the workspace owner before expiry",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One free Postgres database per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has 1 GB storage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres has no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres is not intended for production use",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "An external connection string for the database is available from the dashboard and can be used with pg_dump",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After expiry you get 14 days to upgrade to a paid instance type",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "If you don't upgrade within the grace period, Render deletes the database and its data",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The free Postgres expiry window used to be 90 days and Render shortened it to 30 days in 2024",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "One free Postgres database per workspace",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres databases have 1 GB storage",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres databases have no backups or point-in-time recovery",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Free Postgres databases are not intended for production use",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "You can export data with pg_dump using the external connection string from the Render dashboard",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Current free-tier terms are documented at render.com/docs/free",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {}
+    },
+    {
+      "question_id": "q-render-yaml",
+      "cluster": "render-facts",
+      "text": "How do I define a web service, a worker, and a database in render.yaml?",
+      "n": 3,
+      "branded": true,
+      "mention_rate": 1.0,
+      "ci": [
+        0.44,
+        1.0
+      ],
+      "first_pick_rate": 1.0,
+      "avg_rank": 1.0,
+      "avg_brands_named": 1.0,
+      "top_competitors": [],
+      "wrong_claims": [],
+      "uncovered_claims": [
+        {
+          "claim": "`type: worker` has no inbound traffic / no public port",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Supported runtimes include node, python, ruby, go, rust, elixir, docker, image",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`generateValue: true` makes Render generate a random value",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`sync: false` env vars are prompted in the dashboard, not stored in git",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromService` can reuse an env var value from another service via envVarKey",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromDatabase` with `property: connectionString` injects the internal connection URL; other properties include host, port, user, password, database",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Database `ipAllowList: []` means only private network access from Render services",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Shared variables can be defined in an `envVarGroups` section and referenced with `fromGroup`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Key Value instance can be added as a service with `type: keyvalue` and referenced via fromService with property connectionString",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Deploy via Dashboard New → Blueprint; Render creates all resources and syncs future changes to the file on push",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Blueprint field `env` became `runtime`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Plan names such as `starter` and `basic-256mb`, and `postgresMajorVersion` field",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Supported `runtime` values are node | python | ruby | go | rust | elixir | docker | image",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Postgres plan names include free, basic-256mb, basic-1gb, and pro-...",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Postgres databases can be configured with `databaseName`, `user`, `region`, and `postgresMajorVersion` (e.g., \"16\")",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "An empty `ipAllowList: []` means only internal connections to the database are allowed",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Services can be configured with `healthCheckPath` and `autoDeploy`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromDatabase` with `property: connectionString` provides the database's internal URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`generateValue: true` makes Render generate a random value for an env var",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`sync: false` values are not stored in the file, and Render prompts for them in the dashboard when you create the Blueprint",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Shared environment groups can be defined under `envVarGroups` and pulled into a service with `fromGroup`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`worker` services run continuously with no inbound traffic",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`cron` services need a `schedule:` field",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromDatabase.property` can be connectionString, host, port, user, password, or database",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Services can be linked to each other with `fromService` (name, type, property), where property can be host, hostport, port, or connectionString (for keyvalue)",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Docker services can optionally use `dockerContext`, omit `buildCommand`, and use `dockerCommand` to override the start command",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`rootDir` scopes the build in a monorepo, and `buildFilter.paths` controls which changes trigger a deploy",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Older files may use `env: node` instead of `runtime: node`, and `runtime` is the current key",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "In the dashboard, New → Blueprint lets you select the repo, and Render shows the resources it will create before you apply",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "After the Blueprint is applied, later pushes to the file sync changes",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "The Render CLI can validate the file with `render blueprints validate`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Blueprint `runtime` can be python, node, docker, go, ruby, rust, or elixir",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`generateValue: true` makes Render generate a random value for an env var",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`sync: false` keeps a secret out of the repo, and Render prompts for the value when the Blueprint is created",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Environment variable groups (`envVarGroups`) can be shared across services with `fromGroup`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A background worker has no public port or URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Postgres plans include free, basic-256mb, basic-1gb, and pro-*",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`postgresMajorVersion` can be set (e.g. \"16\")",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Setting `ipAllowList: []` on a database means private network only, with no external access",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A `web` service gets a public URL",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromDatabase` with `property: connectionString` injects the internal connection URL; other properties include host, port, user, password, and database",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "`fromService` lets one service read another's `host`, `hostport`, or any of its env vars via `envVarKey`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "A Key Value service can be referenced with `fromService` and `property: connectionString`",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        },
+        {
+          "claim": "Blueprints are deployed via New → Blueprint in the dashboard, and Render resyncs on each push to the tracked branch",
+          "verdict": "uncovered",
+          "fact_id": null,
+          "by": "model"
+        }
+      ],
+      "citation_owners": {
+        "Render": 1
+      }
+    }
+  ],
+  "survey_id": "20261104T214254Z",
+  "date": "2026-11-04",
+  "engines": [
+    "claude"
+  ],
+  "samples_per_question": 3
+}

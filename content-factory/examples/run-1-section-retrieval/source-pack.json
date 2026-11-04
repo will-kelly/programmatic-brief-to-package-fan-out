@@ -1,0 +1,85 @@
+{
+  "snapshot_id": "20261104T215119Z",
+  "sections": [
+    {
+      "n": 1,
+      "id": "service-types#overview",
+      "heading": "Overview",
+      "text": "Render runs web services, static sites, private services, background workers, and cron jobs. Web services and static sites are reachable from the public internet. Private services are reachable only over your private network. Background workers run continuously without receiving traffic, and cron jobs run a command on a schedule and then exit.",
+      "sha": "a6e96d37664a",
+      "score": 4.34
+    },
+    {
+      "n": 2,
+      "id": "disks#limitations",
+      "heading": "Limitations",
+      "text": "A service with an attached disk can't scale to more than one instance, and it doesn't get zero-downtime deploys.",
+      "sha": "982feeac3dff",
+      "score": 3.0
+    },
+    {
+      "n": 3,
+      "id": "free#spin-down",
+      "heading": "Spin-down behavior",
+      "text": "A free web service spins down after 15 minutes without inbound traffic. When it receives a request again, Render spins it back up, and the request waits until the service is running. This can take up to a minute.",
+      "sha": "804def7c070f",
+      "score": 3.0
+    },
+    {
+      "n": 4,
+      "id": "free#postgres",
+      "heading": "Free Postgres",
+      "text": "A free Render Postgres database expires 30 days after it's created. Upgrade it to a paid instance type before then to keep your data.",
+      "sha": "cb78d5fd1efe",
+      "score": 3.0
+    },
+    {
+      "n": 5,
+      "id": "key-value#overview",
+      "heading": "Overview",
+      "text": "Render Key Value is a managed, Redis-compatible key-value store. It was previously called Render Redis. Use it for caches, job queues, and session storage.",
+      "sha": "3d33ba73c490",
+      "score": 3.0
+    },
+    {
+      "n": 6,
+      "id": "web-services#port-binding",
+      "heading": "Port binding",
+      "text": "Your app must bind to host 0.0.0.0 on the port given in the PORT environment variable. The default value of PORT is 10000.",
+      "sha": "3a0462e7a675",
+      "score": 3.0
+    },
+    {
+      "n": 7,
+      "id": "web-services#intro",
+      "heading": "Web services",
+      "text": "A web service runs your app and gives it a public onrender.com URL.",
+      "sha": "486abf523aec",
+      "score": 2.35
+    },
+    {
+      "n": 8,
+      "id": "blueprint-spec#top-level",
+      "heading": "Top-level fields",
+      "text": "The top-level `services` list defines web services, private services, background workers, cron jobs, and Key Value instances. Each service needs a `type` and a `name`. Render Postgres databases are defined in the top-level `databases` list. Environment groups are defined under `envVarGroups`.",
+      "sha": "8e64786750b3",
+      "score": 1.99
+    },
+    {
+      "n": 9,
+      "id": "deploys#zero-downtime",
+      "heading": "Zero-downtime deploys",
+      "text": "By default, Render keeps the old instance serving traffic until the new one is healthy, so web services deploy without downtime. Services with an attached persistent disk are the exception: Render stops the old instance before starting the new one, so there is a short gap.",
+      "sha": "95f82b11e84d",
+      "score": 1.99
+    },
+    {
+      "n": 10,
+      "id": "free#intro",
+      "heading": "Deploy for free",
+      "text": "Render offers free instance types for web services, Render Postgres, and Render Key Value, for hobby projects and testing.",
+      "sha": "afcc634139e7",
+      "score": 1.99
+    }
+  ]
+}

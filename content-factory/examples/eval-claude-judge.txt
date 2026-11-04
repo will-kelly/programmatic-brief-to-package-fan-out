@@ -1,0 +1,6 @@
+suite       precision  recall   (baseline)
+factcheck   1.0        1.0      (1.0, 1.0)
+lint        1.0        1.0      (1.0, 1.0)
+brands      1.0        1.0      (1.0, 1.0)
+
+no regression against baseline
