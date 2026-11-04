@@ -41,7 +41,9 @@ class Factory(unittest.TestCase):
         self.assertIn("Wrong about Render", out)
         self.assertIn("F-free-postgres-expiry", out)
         self.assertIn("*(branded)*", out)
-        s = json.loads((Path(self.state("surveys/LATEST").read_text().strip()) / "summary.json").read_text())
+        ref = self.state("surveys/LATEST").read_text().strip()
+        self.assertFalse(Path(ref).is_absolute())          # survives a state pull elsewhere
+        s = json.loads((self.state(ref) / "summary.json").read_text())
         q = {x["question_id"]: x for x in s["questions"]}
         self.assertEqual(q["q-agent-long-running"]["mention_rate"], 0)
         self.assertEqual(q["q-django-postgres"]["mention_rate"], 1)

@@ -151,8 +151,11 @@ docs snapshot ──► research ──► draft ──► check ──► revie
 
 ## Run it
 
-Python 3.11+, standard library only. Model calls go through the `claude` CLI
-headless, with tools off. Set `CF_LLM=fake` to run everything offline.
+Python 3.11+, standard library only for local runs. Model calls go through
+the `claude` CLI headless, with tools off. `CF_LLM=anthropic` uses the
+Messages API instead, and `CF_LLM=fake` runs everything offline. To run it
+against Render's real docs or deploy it on Render Workflows, follow
+[`DEPLOY.md`](DEPLOY.md).
 
 ```bash
 ./cf docs snapshot --from fixtures/docs
@@ -190,10 +193,15 @@ headless, with tools off. Set `CF_LLM=fake` to run everything offline.
 ./cf metrics --targets ai-agents
 ```
 
-Tests run the whole loop offline:
+Tests run the whole loop offline, and the deploy path (API backend,
+Postgres state sync, and a weekly cycle on a disk wiped before every task):
 
 ```bash
 python3 tests/test_factory.py
+```
+
+```bash
+python3 tests/test_deploy.py
 ```
 
 ## What's real and what isn't
@@ -211,7 +219,8 @@ python3 tests/test_factory.py
 - **Unverified:** `workflows/render_workflows.py` follows the documented
   Workflows pattern (`Workflows()`, `@app.task(timeout_seconds=...)`,
   `app.start()`). It marks three SDK details to check against the version
-  you pin.
+  you pin. The Messages API backend is tested against a stubbed client
+  only; this build environment had no API key.
 
 ## What I'd do next at Render
 
@@ -235,10 +244,13 @@ cf                         CLI entry
 config/                    questions, brands, fact registry, voice
 prompts/draft.md           drafting contract (answer-first, claim tags, concede)
 factory/                   survey, brands, signals, gaps, briefs, docs,
-                           pipeline, factcheck, lint, refresh, evals, metrics
+                           pipeline, factcheck, lint, refresh, evals, metrics,
+                           llm (claude CLI / Messages API / fake), store (Postgres sync)
 workflows/                 Render Workflows task bindings
+DEPLOY.md                  real-data runs and the Render Workflows deploy
+requirements.txt           production-only dependencies
 evals/                     cases with planted errors, per-mode baselines
 fixtures/                  synthetic docs, signals, partner draft
 examples/                  one real end-to-end run (see examples/README.md)
-tests/test_factory.py      offline end-to-end tests
+tests/                     offline end-to-end and deploy-path tests
 ```

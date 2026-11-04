@@ -14,8 +14,10 @@ from .common import ROOT, STATE, append_jsonl, read_json, today, write_json
 
 def p_docs(a):
     if a.action == "snapshot":
-        snap = docs.build(Path(a.src))
-        snap["fixture"] = a.fixture or (Path(a.src) / "README.md").exists() and "Synthetic" in (Path(a.src) / "README.md").read_text()
+        is_url = a.src.startswith(("http://", "https://"))
+        snap = docs.build(a.src if is_url else Path(a.src))
+        readme = Path(a.src) / "README.md"
+        snap["fixture"] = bool(a.fixture or (not is_url and readme.exists() and "Synthetic" in readme.read_text()))
         out = docs.save(snap, a.name)
         print(f"{len(snap['sections'])} sections -> {out}{' (fixture)' if snap['fixture'] else ''}")
     elif a.action == "gaps":
@@ -140,6 +142,15 @@ def p_review(a):
     print(f"recorded {a.minutes} min review of {run}")
 
 
+def p_state(a):
+    from . import store
+    url = a.url or store.url_from_env()
+    if not url:
+        sys.exit("set CF_STATE_URL (postgresql://... or sqlite:///...) or pass --url")
+    r = (store.pull if a.action == "pull" else store.push)(url)
+    print(f"{a.action}: {r['files']} files, {r['lines']} log lines")
+
+
 def p_metrics(a):
     md = metrics.scorecard(a.targets.split(",") if a.targets else None)
     (STATE / "scorecard.md").write_text(md, encoding="utf-8")
@@ -152,7 +163,7 @@ def main(argv=None):
 
     d = sp.add_parser("docs", help="snapshot or diff the docs, or list the docs gaps drafts hit")
     d.add_argument("action", choices=["snapshot", "diff", "gaps"])
-    d.add_argument("--from", dest="src"); d.add_argument("--name"); d.add_argument("--fixture", action="store_true")
+    d.add_argument("--from", dest="src", help="docs folder, llms-full.txt file, or its URL"); d.add_argument("--name"); d.add_argument("--fixture", action="store_true")
     d.add_argument("old", nargs="?"); d.add_argument("new", nargs="?")
     d.set_defaults(f=p_docs)
 
@@ -195,6 +206,10 @@ def main(argv=None):
     rv.add_argument("--minutes", type=float, required=True); rv.add_argument("--corrections", type=int, default=0)
     rv.add_argument("--escaped", nargs="*", help="claim IDs the reviewer fixed that the checker passed")
     rv.set_defaults(f=p_review)
+
+    st = sp.add_parser("state", help="sync CF_STATE with a database (for runs on fresh compute)")
+    st.add_argument("action", choices=["pull", "push"]); st.add_argument("--url")
+    st.set_defaults(f=p_state)
 
     m = sp.add_parser("metrics", help="print the scorecard"); m.add_argument("--targets"); m.set_defaults(f=p_metrics)
 

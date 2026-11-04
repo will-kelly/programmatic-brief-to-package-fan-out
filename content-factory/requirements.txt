@@ -1,0 +1,5 @@
+# Only needed for production. Local runs (`./cf` with the claude CLI or
+# CF_LLM=fake, state in a folder) use the standard library alone.
+anthropic>=2.5,<3          # CF_LLM=anthropic
+psycopg[binary]>=3.2,<4    # CF_STATE_URL=postgresql://...
+render_sdk                 # workflows/render_workflows.py; pin the version you verified against

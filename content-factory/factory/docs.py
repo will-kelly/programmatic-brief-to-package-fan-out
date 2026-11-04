@@ -43,8 +43,20 @@ def split_page(stem: str, text: str) -> dict[str, dict]:
     return sections
 
 
+def fetch(url: str, dest: Path) -> Path:
+    """Download an llms-full.txt (or any Markdown dump) to snapshot from."""
+    import urllib.request
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    req = urllib.request.Request(url, headers={"User-Agent": "content-factory-docs-snapshot"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        dest.write_bytes(r.read())
+    return dest
+
+
 def build(src: Path) -> dict:
     sections: dict[str, dict] = {}
+    if str(src).startswith(("http://", "https://")):
+        src = fetch(str(src), STATE / "docs" / "source" / (slugify(str(src)) + ".txt"))
     if src.is_dir():
         for f in sorted(src.glob("**/*.md")):
             if f.name.lower() == "readme.md":

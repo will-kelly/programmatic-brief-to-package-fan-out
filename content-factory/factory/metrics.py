@@ -21,9 +21,10 @@ def scorecard(target_clusters: list[str] | None = None) -> str:
     surveys = []
     for d in sorted((STATE / "surveys").glob("*/summary.json")) if (STATE / "surveys").exists() else []:
         surveys.append(read_json(d))
-    latest = STATE / "surveys" / "LATEST"
-    if latest.exists():
-        p = Path(latest.read_text().strip()) / "summary.json"
+    from .survey import latest_dir
+    ld = latest_dir()
+    if ld:
+        p = ld / "summary.json"
         if p.exists() and all(s["survey_id"] != read_json(p)["survey_id"] for s in surveys):
             surveys.append(read_json(p))
     surveys.sort(key=lambda s: s["survey_id"])

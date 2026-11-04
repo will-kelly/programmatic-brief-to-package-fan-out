@@ -14,3 +14,7 @@ Two tasks matter:
 Before deploying, check the three `VERIFY` notes in the file against the
 Python SDK reference for the version you pin. They were written from the
 documented pattern without access to the live reference.
+
+Every task except the `weekly_cycle` coordinator pulls state from Postgres
+when it starts and pushes it back when it ends (`CF_STATE_URL`), so tasks
+don't depend on a shared disk. Deploy steps are in `../DEPLOY.md`.

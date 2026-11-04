@@ -137,8 +137,20 @@ def run(engine: str = "claude", k: int = 3, select: str | None = None,
     write_json(out_dir / "summary.json", summary)
     (out_dir / "summary.md").write_text(render_md(summary), encoding="utf-8")
     (STATE / "surveys").mkdir(parents=True, exist_ok=True)
-    (STATE / "surveys" / "LATEST").write_text(str(out_dir.resolve()) + "\n")
+    set_latest(out_dir)
     return out_dir
+
+
+def set_latest(out_dir: Path) -> None:
+    """Point LATEST at a survey. Relative to CF_STATE when the survey lives
+    there, so the pointer survives a state pull onto another machine."""
+    (STATE / "surveys").mkdir(parents=True, exist_ok=True)
+    d = out_dir.resolve()
+    try:
+        ref = d.relative_to(STATE.resolve()).as_posix()
+    except ValueError:
+        ref = str(d)
+    (STATE / "surveys" / "LATEST").write_text(ref + "\n")
 
 
 def resummarize(out_dir: Path, rescore: bool = False) -> Path:
@@ -168,7 +180,10 @@ def resummarize(out_dir: Path, rescore: bool = False) -> Path:
 
 def latest_dir() -> Path | None:
     p = STATE / "surveys" / "LATEST"
-    return Path(p.read_text().strip()) if p.exists() else None
+    if not p.exists():
+        return None
+    ref = Path(p.read_text().strip())
+    return ref if ref.is_absolute() else STATE / ref
 
 
 def is_branded(q: dict, brands: Brands | None = None) -> bool:
@@ -176,6 +191,22 @@ def is_branded(q: dict, brands: Brands | None = None) -> bool:
     accuracy only, never for visibility."""
     brands = brands or Brands()
     return any(m["brand"] == brands.us for m in brands.mentions(q.get("text", "")))
+
+
+def merge(dirs: list[Path], out_dir: Path) -> Path:
+    """Combine per-cluster survey runs (one Workflows task each) into one
+    survey, then summarize it as if it had run in one go."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    rows = [r for d in dirs for r in read_jsonl(Path(d) / "answers.jsonl")]
+    (out_dir / "answers.jsonl").write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows))
+    k = max((r["sample"] for r in rows), default=0) + 1
+    summary = summarize(rows, questions())
+    summary.update({"survey_id": out_dir.name, "date": today(), "samples_per_question": k,
+                    "engines": sorted({r["engine"] for r in rows})})
+    write_json(out_dir / "summary.json", summary)
+    (out_dir / "summary.md").write_text(render_md(summary), encoding="utf-8")
+    set_latest(out_dir)
+    return out_dir
 
 
 def summarize(rows: list[dict], qs: list[dict]) -> dict:
